@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eben Safaris Tours</title>
+  <meta name="description" content="Volcano adventures — guided treks, family trips and eco tours. Modern, responsive template." />
+  <link rel="shortcut icon" href="imgs/log.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+
+   
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Basic SEO / Social -->
+  <meta property="og:title" content="Volcano Adventures" />
+  <meta property="og:description" content="Guided volcano treks, family-friendly tours, and eco experiences in East Africa." />
+  <meta property="og:image" content="/images/og-volcano.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* -----------------------------
+       Design tokens / variables
+       ----------------------------- */
+    :root{
+      --color-bg: #FAF7F4;
+      --color-primary:#1E5631; /* lava orange */     
+
+      --color-secondary: #3A3A3A; /* ash gray */
+      --color-accent: #295135; /* forest green */
+      --muted: #7A7A7A;
+
+      --radius: 12px;
+      --container: 1150px;
+      --shadow: 0 6px 18px rgba(18,18,18,0.08);
+
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    }
+
+    /* -----------------------------
+       Reset / Base
+       ----------------------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--font-sans); background:var(--color-bg); color:var(--color-secondary); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6; font-size:16px;
+    }
+    
+    /* Heading Hierarchy */
+    h1, h2, h3, h4, h5, h6 {
+      line-height:1.2;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color:var(--color-secondary);
+    }
+    
+    h1 { font-size:48px; letter-spacing:-0.5px; }
+    h2 { font-size:36px; letter-spacing:-0.3px; margin:0 0 8px 0; }
+    h3 { font-size:24px; letter-spacing:0px; }
+    h4 { font-size:20px; }
+    h5 { font-size:18px; }
+    h6 { font-size:16px; }
+    
+    /* Paragraph Hierarchy */
+    p {
+      font-size:16px;
+      line-height:1.7;
+      color:var(--color-secondary);
+      margin:0 0 12px 0;
+    }
+    
+    .lead {
+      font-size:18px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+    
+    .small-text {
+      font-size:14px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    a{color:var(--color-primary); text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* -----------------------------
+       Header / Navigation
+       ----------------------------- */
+    header{
+      position:sticky; 
+      top:0; 
+      z-index:9999; 
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(250,247,244,0.7), rgba(250,247,244,0.5));
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+    .brand h1{font-family:var(--font-serif);font-size:20px;margin:0;color:var(--color-primary)}
+
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{
+      font-weight:600;
+      color:var(--color-secondary);
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      
+    }
+    
+    nav a:hover {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a.active {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+
+    .cta-primary{
+      background: linear-gradient(135deg, rgba(30, 86, 49, 0.8), rgba(41, 81, 53, 0.8));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .cta-primary:hover{
+      background: linear-gradient(135deg, rgba(41, 81, 53, 0.9), rgba(30, 86, 49, 0.9));
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    /* mobile nav button */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:0;
+      font-size:24px;
+      color:var(--color-primary);
+      cursor:pointer;
+      padding:8px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Mobile menu styles */
+    nav ul {
+      transition: all 0.3s ease;
+    }
+
+    /* Footer */
+    footer{padding:36px 0;background:#fff;margin-top:36px;border-top:1px solid rgba(0,0,0,0.04)}
+
+    /* Sticky booking bar */
+    .sticky-book{position:fixed;right:18px;bottom:18px;background:var(--color-accent);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(18,18,18,0.12);display:flex;gap:12px;align-items:center;z-index:80;font-weight:600;transition:all 0.3s ease}
+
+    /* -----------------------------
+       Responsive
+       ----------------------------- */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{height:320px}
+      .grid{grid-template-columns:repeat(2,1fr);gap:20px}
+      .packages{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
+    }
+    
+    /* Tablet Breakpoint */
+    @media (max-width:768px) {
+      .container{padding:0 16px}
+      h2{font-size:28px}
+      h3{font-size:20px}
+      
+      .nav{padding:12px 0}
+      .brand h1{font-size:18px}
+      
+      .hero{gap:16px;padding:32px 0}
+      .hero-card{padding:20px}
+      .hero h2{font-size:28px}
+      .hero p{font-size:14px}
+      
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      
+      .cta-primary{padding:10px 16px;font-size:14px}
+      
+      .card img{height:180px}
+      .card > div{padding:16px}
+      .card h3{font-size:18px}
+      
+      /* About Us responsive */
+      #about {
+        margin: 28px 0 !important;
+      }
+      
+      #about > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+      
+      #about img {
+        height: 300px !important;
+      }
+    }
+    
+    @media (max-width:720px){
+      .nav{flex-wrap:wrap;gap:16px}
+      nav ul{
+        display:none !important;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:rgba(250,247,244,0.98);
+        backdrop-filter:blur(12px);
+        flex-direction:column;
+        gap:0;
+        padding:12px 0;
+        border-bottom:1px solid rgba(0,0,0,0.1);
+        z-index:1000;
+      }
+      
+      nav ul.active {
+        display:flex !important;
+      }
+      
+      nav li {
+        width:100%;
+      }
+      
+      nav a {
+        display:block;
+        width:100%;
+        padding:14px 20px;
+        border-radius:0;
+      }
+      
+      nav a:hover {
+        background:rgba(30, 86, 49, 0.15);
+      }
+      
+      .nav-toggle{display:block}
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .card img {
+        height:200px;
+      }
+      .card > div {
+        padding: 20px;
+      }
+      .card h3 {
+        font-size:20px;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+/* Grid layout (smaller gaps) */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card */
+.package-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(30,86,49,0.08);
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    position: relative;
+    border: 1px solid rgba(30,86,49,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(30,86,49,0.15);
+    border-color: rgba(30,86,49,0.15);
+}
+
+/* Ribbon (enhanced) */
+.ribbon {
+    position: absolute;
+    top: 14px;
+    left: -8px;
+    background: linear-gradient(135deg, #d4401f, #c92a1f);
+    color: #fff;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    transform: rotate(-12deg);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.ribbon.green {
+    background: linear-gradient(135deg, #27a745, #1e8449);
+}
+.ribbon.yellow {
+    background: linear-gradient(135deg, #d1db0d, #d1db0d);
+}
+
+
+
+
+/* Image box (enhanced) */
+.img-box {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1E5631 0%, #295135 100%);
+}
+
+.img-box img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Hover animation enhanced */
+.package-card:hover .img-box img {
+    transform: scale(1.08) rotate(1deg);
+    filter: brightness(1.05);
+}
+
+/* Content (enhanced layout) */
+.package-content {
+    padding: 16px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.package-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    gap: 8px;
+    line-height:1.3;
+    color:var(--color-primary);
+    font-family:var(--font-serif);
+    letter-spacing:-0.2px;
+    margin: 0 0 8px 0;
+}
+
+.package-content h3 i {
+    font-size: 18px;
+    margin-right: 6px;
+}
+
+/* Stars (enhanced) */
+.stars {
+    color: #ffb400;
+    margin: 8px 0 14px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* Paragraph (refined) */
+.package-content p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-weight: 400;
+}
+
+/* Price (premium styling) */
+.price {
+    font-weight: 700;
+    color: #1E5631;
+    margin-bottom: 16px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price i {
+    font-size: 15px;
+    color: #d4af37;
+}
+
+/* Button (premium & elegant) */
+.btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #1E5631 0%, #295135 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    box-shadow: 0 4px 16px rgba(30,86,49,0.2);
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(212,175,55,0.3);
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #295135 0%, #1E5631 100%);
+    box-shadow: 0 8px 24px rgba(30,86,49,0.3);
+    transform: translateY(-3px);
+    border-color: rgba(212,175,55,0.6);
+}
+
+.btn i {
+    font-size: 14px;
+}
+
+/* Responsive Design for Tour Packages */
+@media (max-width: 1024px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    #packages {
+        padding: 60px 0 !important;
+    }
+    
+    #packages h2 {
+        font-size: 32px !important;
+    }
+    
+    #packages > div > p {
+        font-size: 16px !important;
+    }
+    
+    .img-box img {
+        height: 160px;
+    }
+    
+    .package-content {
+        padding: 20px;
+    }
+    
+    .package-content h3 {
+        font-size: 18px;
+    }
+    
+    .package-content p {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .price {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    
+    .btn {
+        padding: 11px 18px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    #packages {
+        padding: 40px 0 !important;
+    }
+    
+    #packages h2 {
+        font-size: 24px !important;
+    }
+    
+    #packages > div > p {
+        font-size: 14px !important;
+    }
+    
+    .img-box img {
+        height: 160px;
+    }
+    
+    .package-content {
+        padding: 16px;
+    }
+    
+    .package-content h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .package-content h3 i {
+        font-size: 16px;
+    }
+    
+    .package-content p {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    
+    .price {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 12px;
+        gap: 6px;
+    }
+    
+    .btn i {
+        font-size: 12px;
+    }
+    
+    .ribbon {
+        font-size: 9px;
+        padding: 5px 10px;
+    }
+    
+    .stars {
+        font-size: 12px;
+        margin: 6px 0 10px 0;
+    }
+}
+
+/* ============================
+   VIDEO HERO SECTION
+   ============================ */
+.video-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1E5631 0%, #295135 100%);
+}
+
+.video-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 86, 49, 0.4);
+    z-index: 2;
+    backdrop-filter: blur(0px);
+}
+
+.video-hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.video-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.video-hero-content h1 {
+    font-size: 48px;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.video-hero-content p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 28px 0;
+    line-height: 1.5;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+}
+
+.video-hero-cta {
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-hero-cta a {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.video-hero-cta a.primary {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    color: var(--color-primary);
+    border: 2px solid #fff;
+}
+
+.video-hero-cta a.primary:hover {
+    background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.95));
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-hero-cta a.secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.video-hero-cta a.secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Video scroll indicator */
+.video-scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    animation: bounce 2s infinite;
+}
+
+.video-scroll-indicator i {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* Responsive Video Hero */
+@media (max-width: 1024px) {
+    .video-hero {
+        height: 50vh;
+    }
+    
+    .video-hero-content h1 {
+        font-size: 38px;
+        margin-bottom: 12px;
+    }
+    
+    .video-hero-content p {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .video-hero-cta a {
+        padding: 11px 24px;
+        font-size: 13px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-hero {
+        height: 50vh;
+        min-height: 380px;
+    }
+    
+    .video-hero-content {
+        padding: 0 18px;
+    }
+    
+    .video-hero-content h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .video-hero-content p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .video-hero-cta {
+        gap: 10px;
+    }
+    
+    .video-hero-cta a {
+        padding: 10px 20px;
+        font-size: 12px;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .video-hero-content {
+        padding: 0 16px;
+    }
+    
+    .video-hero-content h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+    }
+    
+    .video-hero-content p {
+        font-size: 12px;
+        margin-bottom: 16px;
+        line-height: 1.4;
+    }
+    
+    .video-hero-cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+    
+    .video-hero-cta a {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+        font-size: 11px;
+        gap: 6px;
+    }
+    
+    .video-scroll-indicator {
+        display: none;
+    }
+}
+
+
+ 
+  </style>
+
+  <!-- Structured data: example TourPackage (replace values) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Volcano Adventures",
+    "description": "Guided volcano treks and family tours in East Africa.",
+    "url": "https://example.com"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="imgs/log.png" alt="ventures logo" />
+      <div>
+        <h1>Eben Tours safaris</h1>
+        <div style="font-size:12px;color:var(--muted)">Guided & family-friendly treks</div>
+      </div>
+    </div>
+
+    <nav aria-label="Primary navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
+      <ul id="primary-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination.html">Destinations</a></li>
+        <li><a class="active"  href="#packages">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="n">
+      <a class="cta-primary" href="#book">Book a Trek</a>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+
+  <!-- VIDEO HERO SECTION -->
+  <section class="video-hero">
+    <video autoplay muted loop playsinline>
+      <source src="vids/looin.mp4" type="video/mp4">
+      <source src="vids/looin.mp4" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="video-hero-content">
+      <h1 style="color: white;">Experience African Wilderness</h1>
+      <p>Discover extraordinary safari adventures across pristine landscapes and vibrant wildlife encounters</p>
+      <div class="video-hero-cta">
+        <a href="#packages" class="primary">
+          <i class="fas fa-compass"></i> Explore Packages
+        </a>
+        <a href="#contact" class="secondary">
+          <i class="fas fa-phone"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+    
+    <div class="video-scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" style="padding:50px 0;margin-top: 0px;position: relative;z-index: 5;background:linear-gradient(135deg, rgba(30,86,49,0.02), rgba(30,86,49,0.015));">
+    <!-- Premium Section Header -->
+    <div style="text-align:center;margin-bottom:60px;padding:0 20px">
+      <div style="display:inline-block;padding:10px 20px;background:linear-gradient(135deg, rgba(30,86,49,0.12), rgba(30,86,49,0.06));border-radius:10px;margin-bottom:18px;border:1px solid rgba(30,86,49,0.2)">
+        <p style="color:var(--color-primary);font-weight:700;font-size:13px;letter-spacing:1.8px;margin:0;text-transform:uppercase">Our Tours & Packages</p>
+      </div>
+      <h2 style="font-size:48px;margin:16px 0 18px;color:var(--color-secondary);font-family:var(--font-serif);letter-spacing:-0.5px;font-weight:700">Unforgettable Safari Experiences</h2>
+      <p style="font-size:18px;color:var(--muted);max-width:650px;margin:0 auto;line-height:1.7;font-weight:400">Discover our curated collection of African safari tours designed to create lasting memories. From wildlife adventures to cultural immersion, find your perfect journey.</p>
+    </div>
+
+    <div class="container">
+        
+        <div  class="packages-grid">
+      
+        <!-- Card 1 -->
+        <div class="package-card">
+          <div class="ribbon">Most Popular</div>
+          <div class="img-box">
+            <img src="imgs/cro.jpg" alt="Volcano Tour">
+          </div>
+          <div class="package-content">
+            <h3> Day Akagera National Park Safari: The Ultimate Adventure</h3>
+            <p>Set off on an exhilarating adventure deep into the heart of Rwanda's untamed wilderness.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $420</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="package-card">
+          <div class="ribbon green">Best Value</div>
+          <div class="img-box">
+            <img src="imgs/canopy_walk.jpg" alt="Akagera Safari">
+          </div>
+          <div class="package-content">
+            <h3>Day Canopy Walk Adventure in Nyungwe National Park</h3>
+            <p>Rwanda's lush wilderness with our 1-Day Canopy Walk Adventure in Nyungwe National Park.</p>
+            <span class="price"><i class="fas fa-tag"></i> Starting from $450</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="package-card">
+          <div class="img-box">
+            <img src="imgs/MONpGOR.jpg" alt="Kivu Tour">
+          </div>
+          <div class="package-content">
+            <h3>Embark on a thrilling 1-Day Rwanda Gorilla Trekking Expedition</h3>
+            <p>Embark on an extraordinary journey into the heart of Volcanoes National Park,</p>
+            <span class="price"><i class="fas fa-tag"></i> Starting from $300</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+
+
+          <div class="package-card">
+          <div class="img-box">
+            <img src="imgs/chimpanz.jpg" alt="Kivu Tour">
+          </div>
+          <div class="package-content">
+            <h3>Thrilling 2-Day Chimpanzee Trekking and Canopy Walk Adventure</h3>
+            <p>Embark on a captivating two-day journey through Rwanda's enchanting landscapes and vibrant cultural heritage.</p>
+            <span class="price"><i class="fas fa-tag"></i> Starting from $1,195</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+
+        
+
+
+        <div class="package-card">
+          <div class="ribbon yellow">Family recommned</div>
+          <div class="img-box">
+            <img src="imgs/pack.jpg" alt="Kivu Tour">
+          </div>
+          <div class="package-content">
+            <h3>2-Days Akagera National Park Safari Adventure</h3>
+            <p>Embark on a thrilling 2-day safari adventure in the Akagera National Park.</p>
+            <span class="price"><i class="fas fa-tag"></i> Starting from $300</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+
+      </div>
+  </section>
+
+
+
+
+
+
+
+
+
+<footer style="background:linear-gradient(135deg, rgba(30,86,49,0.95) 0%, rgba(45,90,71,0.98) 50%, rgba(30,86,49,0.95) 100%);color:#fff;padding:80px 0 40px;margin-top:80px;position:relative;overflow:hidden;backdrop-filter:blur(8px)">
+  <!-- Premium Decorative SVG Background -->
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle, rgba(255,255,255,0.08), transparent);border-radius:50%;pointer-events:none"></div>
+  <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;background:radial-gradient(circle, rgba(255,255,255,0.06), transparent);border-radius:50%;pointer-events:none"></div>
+  
+  <!-- Premium SVG accent -->
+  <div style="position:absolute;top:40px;left:5%;opacity:0.04;pointer-events:none">
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 10 Q220 50 220 150 Q220 220 150 260 Q80 220 80 150 Q80 50 150 10" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="150" cy="150" r="60" fill="none" stroke="#fff" stroke-width="1" opacity="0.6"/>
+      <circle cx="150" cy="150" r="90" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2">
+    <!-- Premium Top Section -->
+    <div style="display:grid;grid-template-columns:2.5fr 1.2fr 1.2fr 1.3fr;gap:48px;margin-bottom:60px;align-items:start">
+      
+      <!-- Brand Section: Premium Logo & Description -->
+      <div style="padding-right:20px">
+        <!-- Logo with Premium styling -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+          <div style="position:relative;width:56px;height:56px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.2)">
+            <img src="imgs/log.png" alt="Eben Tours Logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover">
+          </div>
+          <div>
+            <h3 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.5px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Eben Tours</h3>
+            <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.75);font-weight:500;letter-spacing:1px;text-transform:uppercase">Safari Adventures</p>
+          </div>
+        </div>
+        
+        <!-- Premium Description -->
+        <p style="color:rgba(255,255,255,0.82);font-size:15px;line-height:1.8;margin:0 0 24px;font-weight:400">Experience the magic of African wilderness with expert guides and responsible tourism. Creating unforgettable memories across pristine landscapes and vibrant cultures.</p>
+        
+        <!-- Premium Social Links -->
+        <div style="display:flex;gap:14px;margin-top:24px;flex-wrap:wrap">
+          <a href="#facebook" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-facebook" style="font-size:18px"></i>
+          </a>
+          <a href="#twitter" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-twitter" style="font-size:18px"></i>
+          </a>
+          <a href="#instagram" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-instagram" style="font-size:18px"></i>
+          </a>
+          <a href="#youtube" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-youtube" style="font-size:18px"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Explore</h4>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px">
+          <li style="margin-bottom:12px"><a href="#packages" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Packages</a></li>
+          <li style="margin-bottom:12px"><a href="#destinations" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Destinations</a></li>
+          <li style="margin-bottom:12px"><a href="#blog" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Blog</a></li>
+          <li><a href="#about" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>About Us</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Section: Premium Cards -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Contact</h4>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="tel:+250786140897" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-phone" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">(+250) 786 140 897</span>
+          </a>
+          <a href="mailto:administration@ebenconnections.com" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-envelope" style="color:rgba(255,255,255,0.9);font-size:16px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500;word-break:break-word">administration@ebenconnections.com</span>
+          </a>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px)">
+            <i class="fas fa-map-marker-alt" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">Kigali, Rwanda</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Premium Newsletter Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Updates</h4>
+        </div>
+        <p style="color:rgba(255,255,255,0.75);font-size:13px;margin:0 0 16px;font-weight:500">Subscribe for exclusive tours and offers.</p>
+        <form onsubmit="event.preventDefault();alert('Subscribed — replace with real API')" style="display:flex;flex-direction:column;gap:10px">
+          <input type="email" placeholder="your@email.com" required style="padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;font-weight:500;transition:all 0.3s ease;backdrop-filter:blur(10px)" onfocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='rgba(255,255,255,0.15)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='rgba(255,255,255,0.08)';this.style.boxShadow='none'">
+          <button type="submit" style="padding:12px 16px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.95) 100%);color:var(--color-primary);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);letter-spacing:0.5px;text-transform:uppercase" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Premium Divider -->
+    <div style="height:1px;background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));margin:60px 0 40px"></div>
+    
+    <!-- Bottom Section: Copyright + Premium Links -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+        <p style="margin:0;color:rgba(255,255,255,0.7)">© <span id="year"></span> Eben Tours Safaris</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.7)">All rights reserved</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.6);font-style:italic">Designed by <a href="https://lerony.com" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;font-weight:500;font-style:italic" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Lerony</a></p>
+      </div>
+      
+      <div style="display:flex;gap:24px;font-size:13px">
+        <a href="#privacy" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Privacy</a>
+        <a href="#terms" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Terms</a>
+        <a href="#sitemap" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    @media (max-width: 1024px) {
+      footer {
+        padding: 60px 0 30px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 36px !important;
+        margin-bottom: 40px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      footer {
+        padding: 48px 0 24px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        margin-bottom: 32px !important;
+      }
+      
+      footer .container > div:last-child {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</footer>
+
+<!-- Sticky book CTA -->
+<a href="#contact" class="sticky-book" aria-label="Book a trek">
+  📞 Book a Trek
+</a>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('primary-menu');
+  
+  toggle.addEventListener('click', ()=>{
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    menu.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('active');
+    });
+  });
+
+  // ============================================
+  // HERO CAROUSEL AUTO-SLIDESHOW
+  // ============================================
+  let currentSlideIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  const totalSlides = slides.length;
+  
+  function showSlide(index) {
+    // Remove active class from all slides and indicators
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Force animation restart by triggering reflow
+    slides[index].offsetHeight;
+    
+    // Add active class to current slide and indicator
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    currentSlideIndex = index;
+  }
+  
+  function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+    showSlide(currentSlideIndex);
+  }
+  
+  function currentSlide(index) {
+    showSlide(index);
+    // Reset auto-advance timer
+    clearInterval(autoAdvanceTimer);
+    autoAdvanceTimer = setInterval(nextSlide, 2000);
+  }
+  
+  // Auto-advance carousel every 2 seconds
+  let autoAdvanceTimer = setInterval(nextSlide, 2000);
+  
+  // Pause on hover
+  const carousel = document.getElementById('heroCarousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(autoAdvanceTimer);
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+      autoAdvanceTimer = setInterval(nextSlide, 8000);
+    });
+  }
+
+  // Booking form: placeholder - replace with API endpoint
+  const form = document.getElementById('booking-form');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();  
+  
+    const data = new FormData(form);
+    // Example: show a success message. Replace with fetch()/API call.
+    alert('Thanks '+data.get('name')+" — we'll get back to you shortly.");
+    form.reset();
+  });
+
+  // Accessibility: ensure focus is visible on keyboard navigation
+  document.body.addEventListener('keyup', (e)=>{
+    if(e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+  });
+</script>
+
+</body>
+</html>

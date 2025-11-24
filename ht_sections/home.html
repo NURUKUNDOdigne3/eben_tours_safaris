@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feel the Nature — Hero Section</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green-500: #1f8a4c;
+      --green-700: #16683a;
+      --black-900: #0b0b0b;
+      --muted: rgba(255,255,255,0.75);
+      --glass: rgba(255,255,255,0.06);
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+    
+      color: #f6f7f5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      
+    }
+
+    /* HERO WRAPPER */
+    .hero{
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Background video with dark green overlay */
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background-color: rgba(0,0,0,0.3);
+      z-index:0;
+    }
+    
+    /* Video background */
+    video.hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .container{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:40px;
+      align-items:center;
+    }
+
+    /* HERO LEFT - text */
+    .hero-content{
+      padding:40px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 30px rgba(2,8,6,0.6);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      font-weight:600;
+      font-size:13px;
+      border-radius:999px;
+      background: linear-gradient(90deg,var(--green-700),var(--green-500));
+      color:white;
+      box-shadow:0 6px 18px rgba(22,104,58,0.18);
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0 0 18px 0;
+      font-family: 'Playfair Display', serif;
+      font-weight:700;
+      font-size: clamp(28px, 6vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+
+    p.lead{
+      margin:0 0 26px 0;
+      color:var(--muted);
+      font-size:18px;
+      max-width:62ch;
+    }
+
+    .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;border:1px solid rgba(212, 175, 55, 0.3);cursor:pointer;font-weight:600;letter-spacing:0.3px;transition:all 0.4s ease}
+    .btn-primary{background:linear-gradient(135deg,#1f8a4c 0%,#16683a 100%);color:white;box-shadow:0 4px 15px rgba(31, 138, 76, 0.25)}
+    .btn-primary:hover{background:linear-gradient(135deg,#16683a 0%,#1f8a4c 100%);box-shadow:0 6px 20px rgba(212, 175, 55, 0.4);transform:translateY(-2px)}
+    .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.12)}
+    .btn-ghost:hover{background:rgba(255,255,255,0.08);border:1px solid rgba(212, 175, 55, 0.5)}
+
+    /* HERO RIGHT - card with quick highlights */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 20px rgba(2,8,6,0.5);
+    }
+    .card h3{margin:0 0 12px 0;font-size:18px}
+    .feature{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px dashed rgba(255,255,255,0.03)}
+    .feature:first-of-type{border-top:0}
+    .feature .dot{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--green-500),var(--green-700));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .feature p{margin:0;color:var(--muted);font-size:15px}
+
+    /* Floating leaves animation */
+    .leaf{position:absolute;z-index:1;opacity:0.9}
+    .leaf--one{right:8%;top:10%;width:72px;animation:float 10s ease-in-out infinite}
+    .leaf--two{left:6%;bottom:8%;width:60px;animation:float 12s ease-in-out 2s infinite}
+    @keyframes float{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(8deg)}100%{transform:translateY(0) rotate(0deg)}}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;}
+      .card{order:2}
+    }
+
+    @media (max-width:520px){
+      .hero{padding:28px 16px}
+      .hero-content{padding:20px}
+      .container{gap:20px}
+      .card{padding:16px}
+    }
+
+    /* Small utility */
+    .muted-small{font-size:13px;color:var(--muted)}
+
+  </style>
+</head>
+<body>
+  <section class="hero" aria-label="Main hero - feel the nature">
+    <!-- Nature Video Background - Local File -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="../ht_sections/6150_Monkey_Monkeys_1920x1080.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <!-- Dark overlay for readability -->
+    <div style="position:absolute;inset:0;background: linear-gradient(180deg, rgba(7,18,20,0.4), rgba(0,0,0,0.6));z-index:1;"></div>
+    
+    <!-- decorative leaf SVGs -->
+    <svg style="color: white;" class="leaf leaf--one" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M2 21s6-5 10-7c4-2 9-6 9-10 0 0-6 1-11 4C6 12 2 17 2 21z" fill="#2ea36b" opacity="0.95"/>
+    </svg>
+    <svg class="leaf leaf--two" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M3 19s5-4 9-6c4-2 8-6 8-9 0 0-5 1-9 4C7 12 3 17 3 19z" fill="#1f8a4c" opacity="0.9"/>
+    </svg>
+
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Nature • Calm • Adventure</span>
+        <h1>Feel the Nature</h1>
+        <p class="lead">Pure. Calm. Beautiful. Discover green landscapes, quiet trails, and places that restore the spirit. Your journey to peace begins with one step.</p>
+
+        <div class="cta-row">
+          <button class="btn btn-primary" id="exploreBtn" aria-label="Explore nature">Explore Nature</button>
+          <button class="btn btn-ghost" id="learnBtn" aria-label="Learn more about experiences">Learn More</button>
+        </div>
+
+      ]  </div>
+      <aside class="card" aria-hidden="false">
+        <h3>Quick Picks</h3>
+        <div class="feature">
+          <div class="dot">1</div>
+          <div>
+            <strong>Guided Nature Tours</strong>
+            <p class="muted-small">Local guides, small groups, and authentic experiences.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">2</div>
+          <div>
+            <strong>Eco Stays</strong>
+            <p class="muted-small">Comfortable, low-impact accommodations near scenic spots.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="dot">3</div>
+          <div>
+            <strong>Photography Spots</strong>
+            <p class="muted-small">Sunrise and sunset locations hand-picked by our team.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scroll behavior for demo: these buttons expect anchors on the page.
+    function smoothTo(selector){
+      const el = document.querySelector(selector);
+      if(!el) return window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    document.getElementById('exploreBtn').addEventListener('click', ()=> smoothTo('#experiences'));
+    document.getElementById('learnBtn').addEventListener('click', ()=> smoothTo('#about'));
+
+    // Accessibility: allow Enter key on focused buttons
+    [document.getElementById('exploreBtn'), document.getElementById('learnBtn')].forEach(btn=>{
+      btn.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') btn.click(); });
+    });
+
+
+    // Small progressive enhancement: lazy replace hero background with higher-res after load
+    (function preloadHero(){
+      const url = 'https://images.unsplash.com/photo-1644477195196-c3563fcc23cb?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+      const img = new Image(); img.src = url; img.onload = ()=>{
+        document.querySelector('.hero').style.setProperty('--hero-loaded','true');
+        document.querySelector('.hero').style.backgroundImage = `url(${url})`;
+        // swap the ::before image by adding a style node
+        const style = document.createElement('style');
+        style.innerHTML = `.hero::before{background-image: url(${JSON.stringify(url)});}`;
+        document.head.appendChild(style);
+      }
+    })();
+  </script>
+</body>
+</html>
+

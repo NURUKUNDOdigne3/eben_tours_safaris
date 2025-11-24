@@ -1,0 +1,1717 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eben Safaris Tours</title>
+  <meta name="description" content="Volcano adventures — guided treks, family trips and eco tours. Modern, responsive template." />
+  <link rel="shortcut icon" href="imgs/log.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ 
+  <!-- Basic SEO / Social -->
+  <meta property="og:title" content="Volcano Adventures" />
+  <meta property="og:description" content="Guided volcano treks, family-friendly tours, and eco experiences in East Africa." />
+  <meta property="og:image" content="/images/og-volcano.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+   
+    :root{
+      --color-bg: #FAF7F4;
+      --color-primary:#1E5631; /* lava orange */     
+
+      --color-secondary: #3A3A3A; /* ash gray */
+      --color-accent: #295135; /* forest green */
+      --muted: #7A7A7A;
+
+      --radius: 12px;
+      --container: 1150px;
+      --shadow: 0 6px 18px rgba(18,18,18,0.08);
+
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    }
+
+    /* -----------------------------
+       Reset / Base
+       ----------------------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--font-sans); background:var(--color-bg); color:var(--color-secondary); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6; font-size:16px;
+    }
+    
+    /* Heading Hierarchy */
+    h1, h2, h3, h4, h5, h6 {
+      line-height:1.2;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color:var(--color-secondary);
+    }
+    
+    h1 { font-size:48px; letter-spacing:-0.5px; }
+    h2 { font-size:36px; letter-spacing:-0.3px; margin:0 0 8px 0; }
+    h3 { font-size:24px; letter-spacing:0px; }
+    h4 { font-size:20px; }
+    h5 { font-size:18px; }
+    h6 { font-size:16px; }
+    
+    /* Paragraph Hierarchy */
+    p {
+      font-size:16px;
+      line-height:1.7;
+      color:var(--color-secondary);
+      margin:0 0 12px 0;
+    }
+    
+    .lead {
+      font-size:18px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+    
+    .small-text {
+      font-size:14px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    a{color:var(--color-primary); text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* -----------------------------
+       Header / Navigation
+       ----------------------------- */
+    header{
+      position:sticky; 
+      top:0; 
+      z-index:9999; 
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(250,247,244,0.7), rgba(250,247,244,0.5));
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+    .brand h1{font-family:var(--font-serif);font-size:20px;margin:0;color:var(--color-primary)}
+
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{
+      font-weight:600;
+      color:var(--color-secondary);
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      
+    }
+    
+    nav a:hover {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+     nav a.active {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+
+    .cta-primary{
+      background: linear-gradient(135deg, rgba(30, 86, 49, 0.8), rgba(41, 81, 53, 0.8));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .cta-primary:hover{
+      background: linear-gradient(135deg, rgba(41, 81, 53, 0.9), rgba(30, 86, 49, 0.9));
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    /* mobile nav button */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:0;
+      font-size:24px;
+      color:var(--color-primary);
+      cursor:pointer;
+      padding:8px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Mobile menu styles */
+    nav ul {
+      transition: all 0.3s ease;
+    }
+
+    /* -----------------------------
+       Hero
+       ----------------------------- */
+    .hero{position:relative;padding:48px 0;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));box-shadow:var(--shadow)}
+    .hero h2{font-family:var(--font-serif);font-size:44px;margin:0 0 16px;line-height:1.2;letter-spacing:-0.5px}
+    .hero p{color:var(--muted);margin:0 0 20px;font-size:16px;line-height:1.7}
+
+    .hero-visual{position:relative;border-radius:18px;overflow:hidden;height:420px}
+    .hero-visual .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,10,10,0.2), rgba(10,10,10,0.45));z-index:2}
+    .hero-visual picture, .hero-visual img{width:100%;height:100%;object-fit:cover}
+    
+    /* Image Carousel */
+    .hero-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+    
+    .carousel-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 1;
+    }
+    
+    .carousel-slide.active {
+      opacity: 1;
+      z-index: 3;
+    }
+    
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-slide.active img {
+      animation: zoomIn 2s ease-out forwards;
+    }
+    
+    @keyframes zoomIn {
+      from {
+        transform: scale(1) translateZ(0);
+        filter: brightness(0.9);
+      }
+      to {
+        transform: scale(1.15) translateZ(0);
+        filter: brightness(1);
+      }
+    }
+    
+    /* Carousel indicators */
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 4;
+    }
+    
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    
+    .indicator.active {
+      background: rgba(255, 255, 255, 1);
+      width: 28px;
+      border-radius: 10px;
+    }
+    
+    .indicator:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* -----------------------------
+       Feature / Cards - PREMIUM BLOG CARDS
+       ----------------------------- */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    
+    /* Premium Blog Card Styling */
+    .card{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow: 0 6px 20px rgba(18,18,18,0.06);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position:relative;
+      border: 1px solid rgba(255,255,255,0.5);
+      height:100%;
+      display:flex;
+      flex-direction:column;
+    }
+    
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(30, 86, 49, 0.12);
+      border-color: rgba(30, 86, 49, 0.3);
+    }
+    
+    .card img {
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      transition: transform 0.6s ease;
+      display:block;
+    }
+    
+    .card:hover img {
+      transform: scale(1.08);
+    }
+    
+    .card > div {
+      padding: 18px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+    
+    .card h3{
+      margin:0 0 10px;
+      font-size:19px;
+      font-weight:700;
+      color:var(--color-primary);
+      font-family:var(--font-serif);
+      line-height:1.3;
+      transition: color 0.3s ease;
+      letter-spacing:-0.2px;
+    }
+    
+    .card:hover h3 {
+      color:#1c3d2f;
+    }
+    
+    .card .meta{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:auto;
+      display:flex;
+      gap:6px;
+      align-items:center;
+      padding-top:10px;
+      border-top:1px solid rgba(30, 86, 49, 0.1);
+    }
+    
+    /* Read more link */
+    .card .read-more {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:10px;
+      color:var(--color-primary);
+      font-weight:600;
+      font-size:13px;
+      transition: all 0.3s ease;
+      text-decoration:none;
+    }
+    
+    .card .read-more:hover {
+      gap:12px;
+      color:#1c3d2f;
+    }
+    
+    .card .read-more::after {
+      content:'→';
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover .read-more::after {
+      transform: translateX(4px);
+    }
+
+    /* Packages */
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .package img{height:180px;width:100%;object-fit:cover;border-radius:10px}
+    .package .info{padding:12px}
+    .price{font-weight:700;color:var(--color-primary)}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    blockquote{margin:0;padding:18px;background:#fff;border-radius:12px}
+    
+    .testimonial-card {
+      background:#fff;
+      padding:22px;
+      border-radius:14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid #1E5631;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .stars-rating {
+      color: #ffb400;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    /* Partners */
+    .partners{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .partners img{height:44px;opacity:0.9}
+    
+    /* Partners Carousel - Auto Sliding */
+    .partners-carousel {
+      overflow: hidden;
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    
+    .carousel-track {
+      display: flex;
+      gap: 30px;
+      animation: slide 20s linear infinite;
+      padding: 10px 0;
+    }
+    
+    .carousel-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-width: 150px;
+      height: 80px;
+    }
+    
+    .carousel-item img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .carousel-item:hover img {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Pause animation on hover */
+    .partners-carousel:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    /* Footer */
+    footer{padding:36px 0;background:#fff;margin-top:36px;border-top:1px solid rgba(0,0,0,0.04)}
+
+    /* Sticky booking bar */
+    .sticky-book{position:fixed;right:18px;bottom:18px;background:var(--color-accent);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(18,18,18,0.12);display:flex;gap:12px;align-items:center;z-index:80;font-weight:600;transition:all 0.3s ease}
+
+    /* -----------------------------
+       Responsive
+       ----------------------------- */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{height:320px}
+      .grid{grid-template-columns:repeat(2,1fr);gap:20px}
+      .packages{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
+    }
+    
+    /* Tablet Breakpoint */
+    @media (max-width:768px) {
+      .container{padding:0 16px}
+      h2{font-size:28px}
+      h3{font-size:20px}
+      
+      .nav{padding:12px 0}
+      .brand h1{font-size:18px}
+      
+      .hero{gap:16px;padding:32px 0}
+      .hero-card{padding:20px}
+      .hero h2{font-size:28px}
+      .hero p{font-size:14px}
+      
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      
+      .cta-primary{padding:10px 16px;font-size:14px}
+      
+      .card img{height:180px}
+      .card > div{padding:16px}
+      .card h3{font-size:18px}
+      
+      /* About Us responsive */
+      #about {
+        margin: 28px 0 !important;
+      }
+      
+      #about > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+      
+      #about img {
+        height: 300px !important;
+      }
+    }
+    
+    @media (max-width:720px){
+      .nav{flex-wrap:wrap;gap:16px}
+      nav ul{
+        display:none !important;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:rgba(250,247,244,0.98);
+        backdrop-filter:blur(12px);
+        flex-direction:column;
+        gap:0;
+        padding:12px 0;
+        border-bottom:1px solid rgba(0,0,0,0.1);
+        z-index:1000;
+      }
+      
+      nav ul.active {
+        display:flex !important;
+      }
+      
+      nav li {
+        width:100%;
+      }
+      
+      nav a {
+        display:block;
+        width:100%;
+        padding:14px 20px;
+        border-radius:0;
+      }
+      
+      nav a:hover {
+        background:rgba(30, 86, 49, 0.15);
+      }
+      
+      .nav-toggle{display:block}
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .card img {
+        height:200px;
+      }
+      .card > div {
+        padding: 20px;
+      }
+      .card h3 {
+        font-size:20px;
+      }
+      .hero h2{font-size:32px;letter-spacing:-0.3px}
+      .hero p{font-size:15px;line-height:1.6}
+      
+      /* Mobile sticky booking button */
+      .sticky-book {
+        right:12px;
+        bottom:12px;
+        padding:12px 14px;
+        font-size:14px;
+      }
+      
+      /* Mobile contact section */
+      .contact-section {
+        flex-direction:column;
+      }
+      
+      /* Mobile footer */
+      footer {
+        padding:24px 0;
+      }
+    }
+
+     
+  .home-frame {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    margin-bottom: -170px;
+    display: block;
+  }
+
+  .dest-frame {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: -200px;
+    display: block;
+  }
+  
+  /* Responsive iframes */
+  @media (max-width: 1024px) {
+    .home-frame {
+      height: 80vh;
+      margin-bottom: -120px;
+    }
+    
+    .dest-frame {
+      height: 80vh;
+      margin-bottom: -150px;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .home-frame {
+      height: 60vh;
+      margin-bottom: -80px;
+    }
+    
+    .dest-frame {
+      height: 60vh;
+      margin-bottom: -100px;
+    }
+  }
+
+    /* Accessibility focus outlines */
+    a:focus, button:focus{outline:3px solid rgba(228,87,46,0.18);outline-offset:3px}
+    
+
+
+          /* Main container (reduced padding) */
+.tour-packages {
+    padding: 80px 8%;
+    background: #f5f8f4;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Titles (slightly smaller) */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1c3d2f;
+    margin-bottom: 6px;
+}
+
+.section-subtitle {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Grid layout (smaller gaps) */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* Card */
+.package-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+/* Ribbon (unchanged) */
+.ribbon {
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    background: #d9534f;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    transform: rotate(-12deg);
+    border-radius: 4px;
+}
+
+.ribbon.green {
+    background: #28a745;
+}
+
+
+/* Image box (reduced height) */
+.img-box img {
+    width: 100%;
+    height: 160px;   /* was 200px */
+    object-fit: cover;
+    transition: 0.35s ease;
+}
+
+/* Hover animation remains */
+.package-card:hover .img-box img {
+    transform: scale(1.06);
+}
+
+/* Content (reduced padding) */
+.package-content {
+    padding: 14px;
+    text-align: left;
+}
+
+.package-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    gap: 5px;
+    line-height:1.3;
+    color:var(--color-primary);
+    font-family:var(--font-serif);
+    letter-spacing:-0.2px;
+}
+
+.package-content h3 i {
+    font-size: 14px;
+}
+
+/* Stars (slightly smaller) */
+.stars {
+    color: #ffb400;
+    margin: 4px 0 8px 0;
+    font-size: 13px;
+}
+
+/* Paragraph (smaller) */
+.package-content p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Price (premium styling) */
+.price {
+    font-weight: 700;
+    color: #2c8a3f;
+    margin-bottom: 12px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.price i {
+    font-size: 14px;
+    color: #d4af37;
+}
+
+/* Button (premium & elegant) */
+.btn {
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #1c3d2f 0%, #2d5a47 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(28, 61, 47, 0.2);
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #2d5a47 0%, #1c3d2f 100%);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn i {
+    font-size: 13px;
+}
+
+/* Responsive Design for Tour Packages */
+@media (max-width: 1024px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .tour-packages {
+        padding: 60px 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    
+    .tour-packages {
+        padding: 40px 4%;
+    }
+    
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    
+    .section-subtitle {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+    
+    .img-box img {
+        height: 180px;
+    }
+    
+    .package-content {
+        padding: 12px;
+    }
+    
+    .package-content h3 {
+        font-size: 16px;
+    }
+    
+    .package-content p {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .price {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .btn {
+        padding: 9px 16px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .tour-packages {
+        padding: 32px 3%;
+    }
+    
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    
+    .section-subtitle {
+        font-size: 11px;
+        margin-bottom: 16px;
+    }
+    
+    .img-box img {
+        height: 140px;
+    }
+    
+    .package-content {
+        padding: 10px;
+    }
+    
+    .package-content h3 {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    
+    .package-content h3 i {
+        font-size: 12px;
+    }
+    
+    .package-content p {
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+    
+    .price {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .btn {
+        padding: 7px 12px;
+        font-size: 11px;
+        gap: 4px;
+    }
+    
+    .btn i {
+        font-size: 11px;
+    }
+    
+    .ribbon {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+    
+    .stars {
+        font-size: 12px;
+    }
+}
+
+
+  </style>
+
+  <!-- Structured data: example TourPackage (replace values) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Volcano Adventures",
+    "description": "Guided volcano treks and family tours in East Africa.",
+    "url": "https://example.com"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="imgs/log.png" alt="ventures logo" />
+      <div>
+        <h1>Eben Tours safaris</h1>
+        <div style="font-size:12px;color:var(--muted)">Guided & family-friendly treks</div>
+      </div>
+    </div>
+
+    <nav aria-label="Primary navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
+      <ul id="primary-menu">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="destination.html">Destinations</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="n">
+      <a class="cta-primary" href="#book">Book a Trek</a>
+    </div>
+  </div>
+</header>
+
+
+  
+
+  <!-- HERO -->
+  <section class="video-hero" style="position:relative;overflow:hidden;min-height:520px">
+    <div class="video-carousel" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;">
+      <video class="carousel-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.6)" src="vids/looin.mp4"></video>
+      <video class="carousel-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:none;filter:brightness(0.6)" src="vids/4911905_Gorilla_Wildlife_1920x1080.mp4"></video>
+      <video class="carousel-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:none;filter:brightness(0.6)" src="vids/463059_Elephant_Elephants_1920x1080.mp4"></video>
+      <video class="carousel-video" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:none;filter:brightness(0.6)" src="vids/giraffe.mp4"></video>
+    </div>
+    <div class="video-hero-content" style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:520px;padding:80px 20px 60px 20px;text-align:center">
+      <h1 style="color:#fff;font-size:48px;font-family:var(--font-serif);font-weight:700;letter-spacing:-0.5px;margin-bottom:18px;background:linear-gradient(135deg,#fff 0%,#e0ffe0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">The Ultimate Bespoke African Safari Experience  Let the Adventure Begin</h1>
+      
+      <div style="display:flex;gap:16px;justify-content:center;margin-bottom:24px">
+        <a class="cta-primary" href="#packages" style="font-size:18px">View Packages</a>
+        <a href="#contact" style="display:inline-block;padding:12px 18px;border-radius:10px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);font-weight:600;color:#fff">Contact Guide</a>
+      </div>
+     
+    </div>
+      </div>
+      
+      <div class="overlay"></div>
+      
+      <!-- Carousel indicators -->
+      <div class="carousel-indicators" id="carouselIndicators">
+        <span class="indicator active" onclick="showVideoSlide(0)"></span>
+        <span class="indicator" onclick="showVideoSlide(1)"></span>
+        <span class="indicator" onclick="showVideoSlide(2)"></span>
+        <span class="indicator" onclick="showVideoSlide(3)"></span>
+      </div>
+    </div><!-- DESTINATIONS -->
+   
+  </section>
+
+  <main class="container" id="home">
+
+  <!-- DESTINATIONS -->
+   <h2 style="position: relative; z-index: 10;">Our Major Destinations</h2>
+  <iframe src="ht_sections/de.html" class="dest-frame" frameborder="0"></iframe>
+  
+
+
+  <iframe src="ht_sections/home.html" class="home-frame"></iframe>
+
+  
+
+     
+
+
+  
+  <!-- PACKAGES -->
+  <section id="packages" style="padding:36px 0;margin-top: 0px;position: relative;z-index: 5;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px">
+      <div>
+        <h2 style="margin:0;font-size:32px">Eben Safaris Packages</h2>
+        <p style="color:var(--muted);margin:8px 0 0;font-size:16px">Browse for more packages</p>
+      </div>
+      <a href="#blog" style="font-weight:700;color:var(--color-primary);font-size:15px;transition:all 0.3s ease" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">View all Packages →</a>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+      
+     
+          <div class="packages-grid">
+      <!-- Card 1 -->
+      <div class="package-card">
+        <div class="ribbon">Most Popular</div>
+        <div class="img-box">
+          <img src="imgs/cro.jpg" alt="Volcano Tour">
+        </div>
+        <div class="package-content">
+          <h3><i class="fas fa-volcano"></i> Volcano & Gorilla Trekking</h3>
+          <p>Experience the breathtaking Volcanoes National Park and meet the mountain gorillas.</p>
+          <span class="price"><i class="fas fa-tag"></i> From $650</span>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="package-card">
+        <div class="ribbon green">Best Value</div>
+        <div class="img-box">
+          <img src="imgs/lion.jpg" alt="Akagera Safari">
+        </div>
+        <div class="package-content">
+          <h3><i class="fas fa-binoculars"></i> Akagera Wildlife Safari</h3>
+          <p>Explore the Big Five in Rwanda's stunning savannah wildlife park.</p>
+          <span class="price"><i class="fas fa-tag"></i> Starting from $450</span>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="package-card">
+        <div class="img-box">
+          <img src="imgs/gorila.jpg" alt="Kivu Tour">
+        </div>
+        <div class="package-content">
+          <h3><i class="fas fa-umbrella-beach"></i> Lake Kivu Getaway</h3>
+          <p>Relax on the shores of Lake Kivu with beautiful sunsets and fresh breezes.</p>
+          <span class="price"><i class="fas fa-tag"></i> Starting from $300</span>
+          <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- TESTIMONIALS - GOOGLE REVIEWS -->
+  <section style="padding:36px 0">
+    <h2>What our guests say</h2>
+    <p style="color:var(--muted);margin-bottom:28px;font-size:16px">Real reviews from Google - See what travelers think</p>
+    
+    <!-- Google Reviews Widget by Elfsight -->
+    <div style="background:#fff;padding:28px;border-radius:14px;box-shadow: 0 4px 15px rgba(0,0,0,0.08)">
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-956a7f1b-131c-40ea-8f4f-0bfe763eba98" data-elfsight-app-lazy></div>
+    </div>
+    
+
+  <!-- PARTNERS -->
+  <section style="padding:36px 0">
+    <h2>Our Partners</h2>
+    <div class="partners-carousel" style="margin-top:28px">
+      <div class="carousel-track">
+        <div class="carousel-item"><img src="imgs/RDB.jpg" alt="RDB Partner logo" loading="lazy"></div>
+        <div class="carousel-item"><img src="imgs/visit-rwanda-seeklogo.png" alt="Visit Rwanda Partner" loading="lazy"></div>
+        <div class="carousel-item"><img src="imgs/OneOnly-Logo.jpg" alt="One Only Partner" loading="lazy"></div>
+        <div class="carousel-item"><img src="imgs/bfc9ff252b470cbc671e871d1efe3689.png" alt="Partner logo" loading="lazy"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="carousel-item"><img src="imgs/Logo-011.png" alt="RDB Partner logo" loading="lazy"></div>
+        <div class="carousel-item"><img src="imgs/kisspng-logo-brand-product-design-font-morvick-travels-amp-tours-ltd-nigeria-amp-apos-5b75f057225813.0890403615344558951407.png" alt="RDB Partner logo" loading="lazy"></div>
+       
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- BLOG PREVIEW -->
+  <section id="blog" style="padding:48px 0">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px">
+      <div>
+        <h2 style="margin:0;font-size:32px">Latest from our Journal</h2>
+        <p style="color:var(--muted);margin:8px 0 0;font-size:16px">Stories, tips, and insights from the trail</p>
+      </div>
+      <a href="#blog" style="font-weight:700;color:var(--color-primary);font-size:15px;transition:all 0.3s ease" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">View all articles →</a>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <img src="imgs/gorila.jpg" alt="What to pack for a volcano trek" loading="lazy">
+        <div>
+          <h3>What to pack for a volcano trek</h3>
+          <p style="color:#666;font-size:14px;line-height:1.5;margin:0;flex:1">Essential gear and clothing recommendations to stay comfortable and safe during your mountain adventure.</p>
+          <p class="meta"><i class="fas fa-clock" style="color:var(--color-primary)"></i> 5 min read <span style="color:#ccc">•</span> <i class="fas fa-shield-alt" style="color:var(--color-primary)"></i> Safety tips</p>
+          <a href="#" class="read-more">Read Article</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="imgs/lion.jpg" alt="Responsible tourism" loading="lazy">
+        <div>
+          <h3>Responsible volcano tourism</h3>
+          <p style="color:#666;font-size:14px;line-height:1.5;margin:0;flex:1">How to explore natural wonders responsibly while preserving them for future generations.</p>
+          <p class="meta"><i class="fas fa-leaf" style="color:var(--color-primary)"></i> 7 min read <span style="color:#ccc">•</span> <i class="fas fa-earth-africa" style="color:var(--color-primary)"></i> Conservation</p>
+          <a href="#" class="read-more">Read Article</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="imgs/mountain.jpg" alt="Best seasons for trekking" loading="lazy">
+        <div>
+          <h3>Best seasons for trekking</h3>
+          <p style="color:#666;font-size:14px;line-height:1.5;margin:0;flex:1">Discover the perfect time to visit for optimal weather, wildlife viewing, and unforgettable experiences.</p>
+          <p class="meta"><i class="fas fa-calendar" style="color:var(--color-primary)"></i> 3 min read <span style="color:#ccc">•</span> <i class="fas fa-route" style="color:var(--color-primary)"></i> Planning</p>
+          <a href="#" class="read-more">Read Article</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section id="about" style="padding:40px 0;background:linear-gradient(135deg, rgba(30, 86, 49, 0.08), rgba(30, 86, 49, 0.03));border-radius:20px;margin:32px 0;position:relative;overflow:hidden">
+    <!-- Decorative background elements -->
+    <div style="position:absolute;top:-80px;right:-80px;width:250px;height:250px;background:radial-gradient(circle, rgba(30,86,49,0.08), transparent);border-radius:50%;pointer-events:none"></div>
+    <div style="position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;background:radial-gradient(circle, rgba(30,86,49,0.06), transparent);border-radius:50%;pointer-events:none"></div>
+    
+    <div class="container" style="position:relative;z-index:2">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center">
+        <!-- Left side: Image with premium effects -->
+        <div style="position:relative;border-radius:16px;overflow:hidden;height:300px">
+          <img src="imgs/lion.jpg" alt="Eben Tours Experience" style="width:100%;height:100%;object-fit:cover;border-radius:16px;transition:transform 0.6s ease;box-shadow:0 20px 50px rgba(30,86,49,0.25)">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(30,86,49,0.35), rgba(30,86,49,0.55));border-radius:16px;transition:opacity 0.6s ease" onmouseover="this.style.opacity='0.2'" onmouseout="this.style.opacity='1'"></div>
+          
+          <!-- Premium badge -->
+          <div style="position:absolute;top:16px;right:16px;background:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:1px solid rgba(30,86,49,0.2)">
+            <div style="font-size:10px;color:var(--color-primary);font-weight:700;letter-spacing:0.8px;text-transform:uppercase">Award Winner</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:1px">Best Safari Guide</div>
+          </div>
+          
+          <!-- Floating stats with animation -->
+          <div style="position:absolute;bottom:16px;left:16px;background:#fff;padding:14px 18px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.8);animation:slideUp 0.8s ease-out">
+            <div style="font-size:24px;font-weight:700;color:var(--color-primary);line-height:1">15+</div>
+            <div style="font-size:12px;color:var(--muted);font-weight:600;margin-top:2px">Years of Excellence</div>
+            <div style="font-size:10px;color:#28a745;margin-top:4px;font-weight:600">⭐ Trusted by 2000+</div>
+          </div>
+        </div>
+        
+        <!-- Right side: Premium content -->
+        <div>
+          <div style="display:inline-block;padding:6px 12px;background:linear-gradient(135deg, rgba(30,86,49,0.1), rgba(30,86,49,0.05));border-radius:6px;margin-bottom:12px;border:1px solid rgba(30,86,49,0.15)">
+            <p style="color:var(--color-primary);font-weight:700;font-size:11px;letter-spacing:1.5px;margin:0;text-transform:uppercase">Who We Are</p>
+          </div>
+          
+          <h2 style="margin:12px 0 14px;font-size:32px;line-height:1.15;color:var(--color-secondary)">
+            <span style="background:linear-gradient(135deg, var(--color-primary), #2d5a47);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Eben Tours Safaris</span>
+          </h2>
+          
+          <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px;font-weight:400">We create unforgettable nature experiences with 15+ years of expertise in African wilderness adventures. Expert local knowledge meets world-class hospitality.</p>
+          
+          <!-- Premium stats row -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0;padding:16px 0;border-top:1px solid rgba(30,86,49,0.1);border-bottom:1px solid rgba(30,86,49,0.1)">
+            <div style="text-align:center">
+              <div style="font-size:26px;font-weight:700;color:var(--color-primary);line-height:1">2000+</div>
+              <p style="font-size:12px;color:var(--muted);margin:4px 0 0;font-weight:600">Travelers</p>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:26px;font-weight:700;color:var(--color-primary);line-height:1">50+</div>
+              <p style="font-size:12px;color:var(--muted);margin:4px 0 0;font-weight:600">Expert Guides</p>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:26px;font-weight:700;color:var(--color-primary);line-height:1">4.9★</div>
+              <p style="font-size:12px;color:var(--muted);margin:4px 0 0;font-weight:600">Rating</p>
+            </div>
+          </div>
+          
+          <!-- Premium value cards grid -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0">
+            <div style="background:#fff;padding:16px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 6px 18px rgba(30,86,49,0.07);transition:all 0.3s ease;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(30,86,49,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 18px rgba(30,86,49,0.07)'">
+              <i class="fas fa-leaf" style="color:var(--color-primary);font-size:22px;margin-bottom:8px;display:block"></i>
+              <h4 style="margin:8px 0;color:var(--color-primary);font-size:14px;font-weight:700">Eco-Friendly</h4>
+              <p style="font-size:12px;color:var(--muted);margin:0;line-height:1.5">Sustainable tourism practices</p>
+            </div>
+            
+            <div style="background:#fff;padding:16px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 6px 18px rgba(30,86,49,0.07);transition:all 0.3s ease;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(30,86,49,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 18px rgba(30,86,49,0.07)'">
+              <i class="fas fa-users" style="color:var(--color-primary);font-size:22px;margin-bottom:8px;display:block"></i>
+              <h4 style="margin:8px 0;color:var(--color-primary);font-size:14px;font-weight:700">Expert Guides</h4>
+              <p style="font-size:12px;color:var(--muted);margin:0;line-height:1.5">Certified professionals</p>
+            </div>
+            
+            <div style="background:#fff;padding:16px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 6px 18px rgba(30,86,49,0.07);transition:all 0.3s ease;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(30,86,49,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 18px rgba(30,86,49,0.07)'">
+              <i class="fas fa-heart" style="color:var(--color-primary);font-size:22px;margin-bottom:8px;display:block"></i>
+              <h4 style="margin:8px 0;color:var(--color-primary);font-size:14px;font-weight:700">Passion Driven</h4>
+              <p style="font-size:12px;color:var(--muted);margin:0;line-height:1.5">Love for nature</p>
+            </div>
+            
+            <div style="background:#fff;padding:16px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 6px 18px rgba(30,86,49,0.07);transition:all 0.3s ease;cursor:pointer" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(30,86,49,0.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 18px rgba(30,86,49,0.07)'">
+              <i class="fas fa-shield-alt" style="color:var(--color-primary);font-size:22px;margin-bottom:8px;display:block"></i>
+              <h4 style="margin:8px 0;color:var(--color-primary);font-size:14px;font-weight:700">Safety First</h4>
+              <p style="font-size:12px;color:var(--muted);margin:0;line-height:1.5">Comprehensive protocols</p>
+            </div>
+          </div>
+          
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a class="cta-primary" href="#packages" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;padding:10px 20px">Explore Packages <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;background:#fff;border:2px solid var(--color-primary);color:var(--color-primary);font-weight:600;font-size:14px;transition:all 0.3s ease" onmouseover="this.style.background='rgba(30,86,49,0.05)'" onmouseout="this.style.background='#fff'">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </section>
+
+  <!-- CONTACT SECTION - MODERN DESIGN -->
+  <section id="contact" style="padding:48px 0;background:linear-gradient(135deg, rgba(30,86,49,0.05), rgba(30,86,49,0.02));border-radius:20px;margin:40px 0">
+    <div class="container">
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:40px">
+        <div style="display:inline-block;padding:8px 16px;background:linear-gradient(135deg, rgba(30,86,49,0.1), rgba(30,86,49,0.05));border-radius:8px;margin-bottom:12px;border:1px solid rgba(30,86,49,0.15)">
+          <p style="color:var(--color-primary);font-weight:700;font-size:12px;letter-spacing:1.5px;margin:0;text-transform:uppercase">Get In Touch</p>
+        </div>
+        <h2 style="margin:12px 0;font-size:36px;line-height:1.2">Contact Us</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.6;max-width:500px;margin:0 auto">Have questions about our tours? We're here to help. Reach out to us and we'll get back to you within 24 hours.</p>
+      </div>
+
+      <!-- Main Contact Grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px;align-items:start">
+        
+        <!-- Left: Contact Form -->
+        <div>
+          <div style="background:#fff;padding:28px;border-radius:16px;box-shadow:0 10px 40px rgba(30,86,49,0.12);border:1px solid rgba(30,86,49,0.08)">
+            <h3 style="margin:0 0 20px;font-size:22px;color:var(--color-primary)">Send us a Message</h3>
+            
+            <form id="booking-form" style="display:flex;flex-direction:column;gap:16px">
+              <div>
+                <label style="display:block;font-weight:600;font-size:14px;color:var(--color-secondary);margin-bottom:6px">Full Name</label>
+                <input name="name" required placeholder="John Doe" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,86,49,0.2);font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:14px;color:var(--color-secondary);margin-bottom:6px">Email Address</label>
+                <input name="email" type="email" required placeholder="your@email.com" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,86,49,0.2);font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:14px;color:var(--color-secondary);margin-bottom:6px">Phone (Optional)</label>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <div style="flex:0 0 auto">
+                    <label style="display:block;font-weight:600;font-size:12px;color:var(--color-secondary);margin-bottom:4px">Country Code</label>
+                    <select name="country_code" id="countryCode" style="width:180px;padding:12px 10px;border-radius:10px;border:1px solid rgba(30,86,49,0.2);font-size:15px;font-family:'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;background:#fff;cursor:pointer;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+                      <option value="">Select Country</option>
+                      <option value="+1">🇺🇸 +1 USA</option>
+                      <option value="+44">🇬🇧 +44 UK</option>
+                      <option value="+91">🇮🇳 India +91</option>
+                      <option value="+86">🇨🇳 China +86</option>
+                      <option value="+81">🇯🇵 Japan +81</option>
+                      <option value="+33">🇫🇷 France +33</option>
+                      <option value="+49">🇩🇪 Germany +49</option>
+                      <option value="+39">🇮🇹 Italy +39</option>
+                      <option value="+34">🇪🇸 Spain +34</option>
+                      <option value="+31">🇳🇱 Netherlands +31</option>
+                      <option value="+41">🇨🇭 Switzerland +41</option>
+                      <option value="+43">🇦🇹 Austria +43</option>
+                      <option value="+46">🇸🇪 Sweden +46</option>
+                      <option value="+47">🇳🇴 Norway +47</option>
+                      <option value="+45">🇩🇰 Denmark +45</option>
+                      <option value="+358">🇫🇮 Finland +358</option>
+                      <option value="+30">🇬🇷 Greece +30</option>
+                      <option value="+351">🇵🇹 Portugal +351</option>
+                      <option value="+48">🇵🇱 Poland +48</option>
+                      <option value="+40">🇷🇴 Romania +40</option>
+                      <option value="+61">🇦🇺 Australia +61</option>
+                      <option value="+64">🇳🇿 New Zealand +64</option>
+                      <option value="+27">🇿🇦 South Africa +27</option>
+                      <option value="+234">🇳🇬 Nigeria +234</option>
+                      <option value="+254">🇰🇪 Kenya +254</option>
+                      <option value="+256">🇺🇬 Uganda +256</option>
+                      <option value="+250">🇷🇼 Rwanda +250</option>
+                      <option value="+255">🇹🇿 Tanzania +255</option>
+                      <option value="+258">🇲🇿 Mozambique +258</option>
+                      <option value="+265">🇲🇼 Malawi +265</option>
+                      <option value="+260">🇿🇲 Zambia +260</option>
+                      <option value="+263">🇿🇼 Zimbabwe +263</option>
+                      <option value="+212">🇲🇦 Morocco +212</option>
+                      <option value="+213">🇩🇿 Algeria +213</option>
+                      <option value="+216">🇹🇳 Tunisia +216</option>
+                      <option value="+20">🇪🇬 Egypt +20</option>
+                      <option value="+966">🇸🇦 Saudi Arabia +966</option>
+                      <option value="+971">🇦🇪 UAE +971</option>
+                      <option value="+90">🇹🇷 Turkey +90</option>
+                      <option value="+55">🇧🇷 Brazil +55</option>
+                      <option value="+54">🇦🇷 Argentina +54</option>
+                      <option value="+56">🇨🇱 Chile +56</option>
+                      <option value="+57">🇨🇴 Colombia +57</option>
+                      <option value="+52">🇲🇽 Mexico +52</option>
+                      <option value="+1-876">🇯🇲 Jamaica +1-876</option>
+                      <option value="+1-809">🇩🇴 Dominican Republic +1-809</option>
+                      <option value="+36">🇭🇺 Hungary +36</option>
+                      <option value="+420">🇨🇿 Czech Republic +420</option>
+                      <option value="+421">�� Slovakia +421</option>
+                      <option value="+385">🇭🇷 Croatia +385</option>
+                      <option value="+381">🇷🇸 Serbia +381</option>
+                      <option value="+359">�� Bulgaria +359</option>
+                      <option value="+357">🇨🇾 Cyprus +357</option>
+                      <option value="+371">🇱🇻 Latvia +371</option>
+                      <option value="+372">🇪🇪 Estonia +372</option>
+                      <option value="+370">🇱🇹 Lithuania +370</option>
+                      <option value="+886">🇹🇼 Taiwan +886</option>
+                      <option value="+66">🇹🇭 Thailand +66</option>
+                      <option value="+60">🇲🇾 Malaysia +60</option>
+                      <option value="+65">🇸🇬 Singapore +65</option>
+                      <option value="+62">🇮🇩 Indonesia +62</option>
+                      <option value="+63">🇵🇭 Philippines +63</option>
+                      <option value="+84">🇻🇳 Vietnam +84</option>
+                      <option value="+82">🇰🇷 South Korea +82</option>
+                      <option value="+92">🇵🇰 Pakistan +92</option>
+                      <option value="+880">🇧🇩 Bangladesh +880</option>
+                      <option value="+94">🇱🇰 Sri Lanka +94</option>
+                      <option value="+95">🇲🇲 Myanmar +95</option>
+                      <option value="+977">🇳🇵 Nepal +977</option>
+                      <option value="+98">🇮🇷 Iran +98</option>
+                      <option value="+216">🇹🇳 Tunisia +216</option>
+                      <option value="+40">🇺🇦 Ukraine +40</option>
+                    </select>
+                  </div>
+                  <div style="flex:1">
+                    <label style="display:block;font-weight:600;font-size:12px;color:var(--color-secondary);margin-bottom:4px">Phone Number</label>
+                    <input name="phone" type="tel" placeholder="7XX XXX XXX" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,86,49,0.2);font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:14px;color:var(--color-secondary);margin-bottom:6px">Message</label>
+                <textarea name="message" rows="4" required placeholder="Tell us about your tour interest..." style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(30,86,49,0.2);font-size:14px;font-family:inherit;resize:vertical;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'"></textarea>
+              </div>
+
+              <div style="display:flex;gap:10px;margin-top:8px">
+                <button type="submit" class="cta-primary" style="flex:1">Send Message</button>
+                <button type="reset" style="padding:12px 16px;border-radius:10px;border:2px solid rgba(30,86,49,0.2);background:#fff;color:var(--color-primary);cursor:pointer;font-weight:600;transition:all 0.3s ease" onmouseover="this.style.borderColor='var(--color-primary)'" onmouseout="this.style.borderColor='rgba(30,86,49,0.2)'">Clear</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Contact Info Cards -->
+        <div style="display:flex;flex-direction:column;gap:16px">
+          
+          <!-- Office Address Card -->
+          <div style="background:#fff;padding:22px;border-radius:14px;border-left:5px solid var(--color-primary);box-shadow:0 8px 28px rgba(30,86,49,0.1);transition:all 0.3s ease" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(30,86,49,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 28px rgba(30,86,49,0.1)'">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="background:linear-gradient(135deg, var(--color-primary), #2d5a47);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-map-marker-alt" style="color:#fff;font-size:20px"></i>
+              </div>
+              <div>
+                <h4 style="margin:0;font-size:16px;font-weight:700;color:var(--color-primary)">Office Address</h4>
+                <p style="margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.6">1 KN 78 St<br>Norrsken House<br>Kigali, Rwanda</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Card -->
+          <div style="background:#fff;padding:22px;border-radius:14px;border-left:5px solid var(--color-primary);box-shadow:0 8px 28px rgba(30,86,49,0.1);transition:all 0.3s ease" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(30,86,49,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 28px rgba(30,86,49,0.1)'">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="background:linear-gradient(135deg, var(--color-primary), #2d5a47);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-phone" style="color:#fff;font-size:20px"></i>
+              </div>
+              <div>
+                <h4 style="margin:0;font-size:16px;font-weight:700;color:var(--color-primary)">Phone</h4>
+                <p style="margin:6px 0 0;font-size:14px;color:var(--muted)"><a href="tel:+250786140897" style="color:var(--color-primary);text-decoration:none;font-weight:600;transition:all 0.2s ease" onmouseover="this.style.color='#2d5a47'" onmouseout="this.style.color='var(--color-primary)'">(+250) 786 140 897</a></p>
+                <p style="margin:6px 0 0;font-size:13px;color:var(--muted)">Available Mon-Fri, 8am-5pm EAT</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Card -->
+          <div style="background:#fff;padding:22px;border-radius:14px;border-left:5px solid var(--color-primary);box-shadow:0 8px 28px rgba(30,86,49,0.1);transition:all 0.3s ease" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(30,86,49,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 28px rgba(30,86,49,0.1)'">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="background:linear-gradient(135deg, var(--color-primary), #2d5a47);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fas fa-envelope" style="color:#fff;font-size:20px"></i>
+              </div>
+              <div>
+                <h4 style="margin:0;font-size:16px;font-weight:700;color:var(--color-primary)">Email</h4>
+                <p style="margin:6px 0 0;font-size:14px"><a href="mailto:administration@ebenconnections.com" style="color:var(--color-primary);text-decoration:none;font-weight:600;transition:all 0.2s ease" onmouseover="this.style.color='#2d5a47'" onmouseout="this.style.color='var(--color-primary)'">administration@ebenconnections.com</a></p>
+                <p style="margin:6px 0 0;font-size:13px;color:var(--muted)">We'll respond within 24 hours</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Google Map Section -->
+      <div style="margin-top:40px;border-radius:16px;overflow:hidden;box-shadow:0 15px 50px rgba(30,86,49,0.15);height:400px">
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1763540960228!6m8!1m7!1sHPFJlZUX1v7rxR7b2GSVbg!2m2!1d-1.951185469851299!2d30.06022485246644!3f277.5790160102026!4f-3.65199571720963!5f0.7820865974627469" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    @media (max-width: 1024px) {
+      #contact {
+        padding: 32px 0;
+        margin: 32px 0;
+      }
+      
+      #contact > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      #contact {
+        padding: 24px 0;
+        margin: 24px 0;
+      }
+      
+      #contact h2 {
+        font-size: 28px !important;
+      }
+      
+      #contact > div > div:first-child {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+</main>
+
+<footer style="background:linear-gradient(135deg, rgba(30,86,49,0.95) 0%, rgba(45,90,71,0.98) 50%, rgba(30,86,49,0.95) 100%);color:#fff;padding:80px 0 40px;margin-top:80px;position:relative;overflow:hidden;backdrop-filter:blur(8px)">
+  <!-- Premium Decorative SVG Background -->
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle, rgba(255,255,255,0.08), transparent);border-radius:50%;pointer-events:none"></div>
+  <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;background:radial-gradient(circle, rgba(255,255,255,0.06), transparent);border-radius:50%;pointer-events:none"></div>
+  
+  <!-- Premium SVG accent -->
+  <div style="position:absolute;top:40px;left:5%;opacity:0.04;pointer-events:none">
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 10 Q220 50 220 150 Q220 220 150 260 Q80 220 80 150 Q80 50 150 10" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="150" cy="150" r="60" fill="none" stroke="#fff" stroke-width="1" opacity="0.6"/>
+      <circle cx="150" cy="150" r="90" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2">
+    <!-- Premium Top Section -->
+    <div style="display:grid;grid-template-columns:2.5fr 1.2fr 1.2fr 1.3fr;gap:48px;margin-bottom:60px;align-items:start">
+      
+      <!-- Brand Section: Premium Logo & Description -->
+      <div style="padding-right:20px">
+        <!-- Logo with Premium styling -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+          <div style="position:relative;width:56px;height:56px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.2)">
+            <img src="imgs/log.png" alt="Eben Tours Logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover">
+          </div>
+          <div>
+            <h3 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.5px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Eben Tours</h3>
+            <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.75);font-weight:500;letter-spacing:1px;text-transform:uppercase">Safari Adventures</p>
+          </div>
+        </div>
+        
+        <!-- Premium Description -->
+        <p style="color:rgba(255,255,255,0.82);font-size:15px;line-height:1.8;margin:0 0 24px;font-weight:400">Experience the magic of African wilderness with expert guides and responsible tourism. Creating unforgettable memories across pristine landscapes and vibrant cultures.</p>
+        
+        <!-- Premium Social Links -->
+        <div style="display:flex;gap:14px;margin-top:24px;flex-wrap:wrap">
+          <a href="#facebook" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-facebook" style="font-size:18px"></i>
+          </a>
+          <a href="#twitter" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-twitter" style="font-size:18px"></i>
+          </a>
+          <a href="#instagram" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-instagram" style="font-size:18px"></i>
+          </a>
+          <a href="#youtube" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-youtube" style="font-size:18px"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Explore</h4>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px">
+          <li style="margin-bottom:12px"><a href="#packages" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Packages</a></li>
+          <li style="margin-bottom:12px"><a href="#destinations" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Destinations</a></li>
+          <li style="margin-bottom:12px"><a href="#blog" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Blog</a></li>
+          <li><a href="#about" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>About Us</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Section: Premium Cards -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Contact</h4>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="tel:+250786140897" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-phone" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">(+250) 786 140 897</span>
+          </a>
+          <a href="mailto:administration@ebenconnections.com" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-envelope" style="color:rgba(255,255,255,0.9);font-size:16px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500;word-break:break-word">administration@ebenconnections.com</span>
+          </a>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px)">
+            <i class="fas fa-map-marker-alt" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">Kigali, Rwanda</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Premium Newsletter Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Updates</h4>
+        </div>
+        <p style="color:rgba(255,255,255,0.75);font-size:13px;margin:0 0 16px;font-weight:500">Subscribe for exclusive tours and offers.</p>
+        <form onsubmit="event.preventDefault();alert('Subscribed — replace with real API')" style="display:flex;flex-direction:column;gap:10px">
+          <input type="email" placeholder="your@email.com" required style="padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;font-weight:500;transition:all 0.3s ease;backdrop-filter:blur(10px)" onfocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='rgba(255,255,255,0.15)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='rgba(255,255,255,0.08)';this.style.boxShadow='none'">
+          <button type="submit" style="padding:12px 16px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.95) 100%);color:var(--color-primary);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);letter-spacing:0.5px;text-transform:uppercase" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Premium Divider -->
+    <div style="height:1px;background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));margin:60px 0 40px"></div>
+    
+    <!-- Bottom Section: Copyright + Premium Links -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+        <p style="margin:0;color:rgba(255,255,255,0.7)">© <span id="year"></span> Eben Tours Safaris</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.7)">All rights reserved</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.6);font-style:italic">Designed by <a href="https://lerony.com" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;font-weight:500;font-style:italic" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Lerony</a></p>
+      </div>
+      
+      <div style="display:flex;gap:24px;font-size:13px">
+        <a href="#privacy" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Privacy</a>
+        <a href="#terms" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Terms</a>
+        <a href="#sitemap" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    @media (max-width: 1024px) {
+      footer {
+        padding: 60px 0 30px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 36px !important;
+        margin-bottom: 40px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      footer {
+        padding: 48px 0 24px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        margin-bottom: 32px !important;
+      }
+      
+      footer .container > div:last-child {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</footer>
+
+<!-- Sticky book CTA -->
+<a href="#contact" class="sticky-book" aria-label="Book a trek">
+  📞 Book a Trek
+</a>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('primary-menu');
+  
+  toggle.addEventListener('click', ()=>{
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    menu.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('active');
+    });
+  });
+
+  // ============================================
+  // HERO CAROUSEL AUTO-SLIDESHOW
+  // ============================================
+  let currentSlideIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  const totalSlides = slides.length;
+  
+  function showSlide(index) {
+    // Remove active class from all slides and indicators
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Force animation restart by triggering reflow
+    slides[index].offsetHeight;
+    
+    // Add active class to current slide and indicator
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    currentSlideIndex = index;
+  }
+  
+  function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+    showSlide(currentSlideIndex);
+  }
+  
+  function currentSlide(index) {
+    showSlide(index);
+    // Reset auto-advance timer
+    clearInterval(autoAdvanceTimer);
+    autoAdvanceTimer = setInterval(nextSlide, 2000);
+  }
+  
+  // Auto-advance carousel every 2 seconds
+  let autoAdvanceTimer = setInterval(nextSlide, 2000);
+  
+  // Pause on hover
+  const carousel = document.getElementById('heroCarousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => {
+      clearInterval(autoAdvanceTimer);
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+      autoAdvanceTimer = setInterval(nextSlide, 8000);
+    });
+  }
+
+  // Booking form: placeholder - replace with API endpoint
+  const form = document.getElementById('booking-form');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();  
+  
+    const data = new FormData(form);
+    // Example: show a success message. Replace with fetch()/API call.
+    alert('Thanks '+data.get('name')+" — we'll get back to you shortly.");
+    form.reset();
+  });
+
+  // Accessibility: ensure focus is visible on keyboard navigation
+  document.body.addEventListener('keyup', (e)=>{
+    if(e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+  });
+
+  // VIDEO HERO CAROUSEL FUNCTIONALITY
+  function showVideoSlide(index) {
+    const videos = document.querySelectorAll('.video-carousel .carousel-video');
+    const indicators = document.querySelectorAll('#carouselIndicators .indicator');
+    videos.forEach((vid, i) => {
+      vid.style.display = (i === index) ? 'block' : 'none';
+    });
+    indicators.forEach((ind, i) => {
+      ind.classList.toggle('active', i === index);
+    });
+  }
+  // Initialize first video
+  showVideoSlide(0);
+</script>
+
+</body>
+</html>

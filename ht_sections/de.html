@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* Section */
+.destins {
+    
+   
+    text-align: center;
+}
+
+/* Short, centered container */
+.destins-container {
+    width: 100%;
+    height: 60vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: -200px;
+}
+
+/* Card */
+.destination-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-6px);
+}
+
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.25);
+}
+
+/* Glass-morphism overlay */
+.glass-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-overlay h3 {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Scroll-trigger fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.9s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enable 3D space */
+.destination-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+/* Smooth reset when cursor leaves */
+.destination-card {
+    transition: transform 0.3s ease;
+}
+
+
+
+</style>
+<body>
+    
+<section class="destins" id="destins">
+
+   
+    <div class="destins-container">
+
+        <div class="destination-card fade-in">
+            <img src="imgs/cro.jpg" alt="Rwanda">
+            <div class="glass-overlay">
+                <h3>Rwanda</h3>
+            </div>
+        </div>
+
+        <div class="destination-card fade-in">
+            <img src="imgs/gorila.jpg" alt="Uganda">
+            <div class="glass-overlay">
+                <h3>Uganda</h3>
+            </div>
+        </div>
+
+        <div class="destination-card fade-in">
+            <img src="imgs/mountain.jpg" alt="Tanzania">
+            <div class="glass-overlay">
+                <h3>Tanzania</h3>
+            </div>
+        </div>
+
+        <div class="destination-card fade-in">
+            <img src="imgs/lion.jpg" alt="Kenya">
+            <div class="glass-overlay">
+                <h3>Kenya</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    const items = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.3 });
+
+items.forEach(item => observer.observe(item));
+
+
+document.querySelectorAll(".destination-card").forEach(card => {
+    
+    card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;   // Cursor X
+        const y = e.clientY - rect.top;    // Cursor Y
+
+        // Map mouse position to rotation (max 10 degrees)
+        const rotateY = ((x / rect.width) - 0.5) * 20;
+        const rotateX = ((y / rect.height) - 0.5) * -20;
+
+        card.style.transform = `
+            perspective(800px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            scale(1.03)
+        `;
+    });
+
+    // Reset when leaving
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = `
+            perspective(800px)
+            rotateX(0deg)
+            rotateY(0deg)
+            scale(1)
+        `;
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
