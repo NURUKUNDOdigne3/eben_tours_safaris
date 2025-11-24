@@ -868,7 +868,7 @@
   <section class="video-hero">
     <video autoplay muted loop playsinline>
       <source src="vids/Web_vidd.mp4" type="video/mp4">
-      <source src="vids/Web_vidd.mp4" type="video/webm">
+      <source src="vids/Web_vidd.mp4" type=" video/webm">
       Your browser does not support the video tag.
     </video>
     
@@ -901,12 +901,31 @@
       <p style="font-size:18px;color:var(--muted);max-width:650px;margin:0 auto;line-height:1.7;font-weight:400">Discover our curated collection of African safari tours designed to create lasting memories. From wildlife adventures to cultural immersion, find your perfect journey.</p>
     </div>
 
-    <div class="container">
+    <div id="Rwandan_Destinations" class="container">
+        
+        <!-- Destination Filter Buttons -->
+        <div style="display:flex;gap:12px;justify-content:center;margin-bottom:50px;flex-wrap:wrap">
+          <button class="filter-btn active" onclick="filterPackages('all')" style="padding:12px 28px;border:2px solid var(--color-primary);background:var(--color-primary);color:#fff;border-radius:10px;font-weight:700;cursor:pointer;transition:all 0.3s ease;font-size:14px;letter-spacing:0.5px">
+            <i class="fas fa-earth-africa" style="margin-right:8px"></i>All Destinations
+          </button>
+          <button class="filter-btn" onclick="filterPackages('Rwanda')" style="padding:12px 28px;border:2px solid var(--color-primary);background:#fff;color:var(--color-primary);border-radius:10px;font-weight:700;cursor:pointer;transition:all 0.3s ease;font-size:14px;letter-spacing:0.5px">
+            <i class="fas fa-flag" style="margin-right:8px"></i>Rwanda
+          </button>
+          <button class="filter-btn" onclick="filterPackages('Kenya')" style="padding:12px 28px;border:2px solid var(--color-primary);background:#fff;color:var(--color-primary);border-radius:10px;font-weight:700;cursor:pointer;transition:all 0.3s ease;font-size:14px;letter-spacing:0.5px">
+            <i class="fas fa-flag" style="margin-right:8px"></i>Kenya
+          </button>
+          <button class="filter-btn" onclick="filterPackages('Tanzania')" style="padding:12px 28px;border:2px solid var(--color-primary);background:#fff;color:var(--color-primary);border-radius:10px;font-weight:700;cursor:pointer;transition:all 0.3s ease;font-size:14px;letter-spacing:0.5px">
+            <i class="fas fa-flag" style="margin-right:8px"></i>Tanzania
+          </button>
+          <button class="filter-btn" onclick="filterPackages('Uganda')" style="padding:12px 28px;border:2px solid var(--color-primary);background:#fff;color:var(--color-primary);border-radius:10px;font-weight:700;cursor:pointer;transition:all 0.3s ease;font-size:14px;letter-spacing:0.5px">
+            <i class="fas fa-flag" style="margin-right:8px"></i>Uganda
+          </button>
+        </div>
         
         <div  class="packages-grid">
       
         <!-- Card 1 -->
-        <div class="package-card">
+        <div class="package-card" data-destination="Rwanda">
           <div class="ribbon">Most Popular</div>
           <div class="img-box">
             <img src="imgs/cro.jpg" alt="Volcano Tour">
@@ -920,7 +939,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="package-card">
+        <div class="package-card" data-destination="Rwanda">
           <div class="ribbon green">Best Value</div>
           <div class="img-box">
             <img src="imgs/canopy_walk.jpg" alt="Akagera Safari">
@@ -934,7 +953,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="package-card">
+        <div class="package-card" data-destination="Rwanda">
           <div class="img-box">
             <img src="imgs/MONpGOR.jpg" alt="Kivu Tour">
           </div>
@@ -948,7 +967,7 @@
 
 
 
-          <div class="package-card">
+          <div class="package-card" data-destination="Rwanda">
           <div class="img-box">
             <img src="imgs/chimpanz.jpg" alt="Kivu Tour">
           </div>
@@ -963,7 +982,7 @@
         
 
 
-        <div class="package-card">
+        <div class="package-card" data-destination="Rwanda">
           <div class="ribbon yellow">Family recommned</div>
           <div class="img-box">
             <img src="imgs/pack.jpg" alt="Kivu Tour">
@@ -977,7 +996,7 @@
         </div>
 
 
-        <div class="package-card">
+        <div class="package-card" data-destination="Rwanda">
           <div class="img-box">
             <img src="imgs/mon2.jpg" alt="Kivu Tour">
           </div>
@@ -985,6 +1004,86 @@
             <h3>Thrilling 3-Day Chimpanzee Trekking and Canopy Walk Adventure</h3>
             <p>Embark on a captivating three-day journey through Rwanda's enchanting landscapes and vibrant cultural heritage.</p>
             <span class="price"><i class="fas fa-tag"></i> Starting from $1,886</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <!-- Kenya Packages -->
+        <div class="package-card" data-destination="Kenya">
+          <div class="ribbon">Popular</div>
+          <div class="img-box">
+            <img src="imgs/lion.jpg" alt="Kenya Safari">
+          </div>
+          <div class="package-content">
+            <h3>Maasai Mara Safari Adventure</h3>
+            <p>Experience the iconic Maasai Mara with thrilling wildlife encounters and breathtaking landscapes.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $580</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <div class="package-card" data-destination="Kenya">
+          <div class="ribbon green">Best Value</div>
+          <div class="img-box">
+            <img src="imgs/mountain.jpg" alt="Mount Kenya">
+          </div>
+          <div class="package-content">
+            <h3>Mount Kenya Climbing Expedition</h3>
+            <p>Conquer Africa's second-highest peak with expert guides and comprehensive support.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $520</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <!-- Tanzania Packages -->
+        <div class="package-card" data-destination="Tanzania">
+          <div class="ribbon">Most Popular</div>
+          <div class="img-box">
+            <img src="imgs/lion.jpg" alt="Tanzania Safari">
+          </div>
+          <div class="package-content">
+            <h3>Serengeti & Ngorongoro Crater Safari</h3>
+            <p>Witness the Great Migration and explore Tanzania's most iconic wildlife destinations.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $680</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <div class="package-card" data-destination="Tanzania">
+          <div class="img-box">
+            <img src="imgs/mountain.jpg" alt="Kilimanjaro">
+          </div>
+          <div class="package-content">
+            <h3>Kilimanjaro Summit Trek</h3>
+            <p>Reach the roof of Africa with our carefully guided Kilimanjaro climbing experience.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $1,200</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <!-- Uganda Packages -->
+        <div class="package-card" data-destination="Uganda">
+          <div class="ribbon">Most Popular</div>
+          <div class="img-box">
+            <img src="imgs/chimpanz.jpg" alt="Uganda Safari">
+          </div>
+          <div class="package-content">
+            <h3>Uganda Gorilla and Chimp Trekking</h3>
+            <p>Encounter the majestic mountain gorillas and chimpanzees in their natural habitat.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $720</span>
+            <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
+          </div>
+        </div>
+
+        <div class="package-card" data-destination="Uganda">
+          <div class="ribbon green">Best Value</div>
+          <div class="img-box">
+            <img src="imgs/lion.jpg" alt="Uganda Wildlife">
+          </div>
+          <div class="package-content">
+            <h3>Queen Elizabeth National Park Safari</h3>
+            <p>Discover the diverse wildlife and stunning landscapes of Uganda's premier national park.</p>
+            <span class="price"><i class="fas fa-tag"></i> From $480</span>
             <a href="#" class="btn"><i class="fas fa-eye"></i> View Details</a>
           </div>
         </div>
@@ -1281,6 +1380,55 @@
   });
 
   // ============================================
+  // PACKAGE FILTER FUNCTIONALITY
+  // ============================================
+  function filterPackages(destination) {
+    const cards = document.querySelectorAll('.package-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update button styles
+    buttons.forEach(btn => {
+      if (btn.textContent.includes(destination) || (destination === 'all' && btn.textContent.includes('All'))) {
+        btn.style.background = 'var(--color-primary)';
+        btn.style.color = '#fff';
+        btn.classList.add('active');
+      } else {
+        btn.style.background = '#fff';
+        btn.style.color = 'var(--color-primary)';
+        btn.classList.remove('active');
+      }
+    });
+    
+    // Filter and animate cards
+    cards.forEach(card => {
+      const cardDestination = card.getAttribute('data-destination');
+      
+      if (destination === 'all' || cardDestination === destination) {
+        card.style.display = 'block';
+        card.style.animation = 'fadeIn 0.5s ease-in-out';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  
+  // Add fade-in animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // ============================================
   // HERO CAROUSEL AUTO-SLIDESHOW
   // ============================================
   let currentSlideIndex = 0;
@@ -1332,14 +1480,16 @@
 
   // Booking form: placeholder - replace with API endpoint
   const form = document.getElementById('booking-form');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();  
-  
-    const data = new FormData(form);
-    // Example: show a success message. Replace with fetch()/API call.
-    alert('Thanks '+data.get('name')+" — we'll get back to you shortly.");
-    form.reset();
-  });
+  if (form) {
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();  
+    
+      const data = new FormData(form);
+      // Example: show a success message. Replace with fetch()/API call.
+      alert('Thanks '+data.get('name')+" — we'll get back to you shortly.");
+      form.reset();
+    });
+  }
 
   // Accessibility: ensure focus is visible on keyboard navigation
   document.body.addEventListener('keyup', (e)=>{
