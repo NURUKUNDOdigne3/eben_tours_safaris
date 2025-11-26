@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eben Safaris Tours</title>
+  <meta name="description" content="Volcano adventures — guided treks, family trips and eco tours. Modern, responsive template." />
+  <link rel="shortcut icon" href="imgs/log.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+ 
+    
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Flag Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+
+
+ 
+  <!-- Basic SEO / Social -->
+  <meta property="og:title" content="Volcano Adventures" />
+  <meta property="og:description" content="Guided volcano treks, family-friendly tours, and eco experiences in East Africa." />
+  <meta property="og:image" content="/images/og-volcano.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* -----------------------------
+       Design tokens / variables
+       ----------------------------- */
+    :root{
+      --color-bg: #FAF7F4;
+      --color-primary:#1E5631; /* lava orange */     
+
+      --color-secondary: #3A3A3A; /* ash gray */
+      --color-accent: #295135; /* forest green */
+      --muted: #7A7A7A;
+
+      --radius: 12px;
+      --container: 1150px;
+      --shadow: 0 6px 18px rgba(18,18,18,0.08);
+
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    }
+
+    /* -----------------------------
+       Reset / Base
+       ----------------------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--font-sans); background:var(--color-bg); color:var(--color-secondary); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.6; font-size:16px;
+    }
+    
+    /* Heading Hierarchy */
+    h1, h2, h3, h4, h5, h6 {
+      line-height:1.2;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color:var(--color-secondary);
+    }
+    
+    h1 { font-size:48px; letter-spacing:-0.5px; }
+    h2 { font-size:36px; letter-spacing:-0.3px; margin:0 0 8px 0; }
+    h3 { font-size:24px; letter-spacing:0px; }
+    h4 { font-size:20px; }
+    h5 { font-size:18px; }
+    h6 { font-size:16px; }
+    
+    /* Paragraph Hierarchy */
+    p {
+      font-size:16px;
+      line-height:1.7;
+      color:var(--color-secondary);
+      margin:0 0 12px 0;
+    }
+    
+    .lead {
+      font-size:18px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+    
+    .small-text {
+      font-size:14px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    a{color:var(--color-primary); text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* -----------------------------
+       Header / Navigation
+       ----------------------------- */
+    header{
+      position:sticky; 
+      top:0; 
+      z-index:9999; 
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(250,247,244,0.7), rgba(250,247,244,0.5));
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+    .brand h1{font-family:var(--font-serif);font-size:20px;margin:0;color:var(--color-primary)}
+
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{
+      font-weight:600;
+      color:var(--color-secondary);
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+      
+    }
+    
+    nav a:hover {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a.active {
+      color: var(--color-primary);
+      background: rgba(30, 86, 49, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+
+    .cta-primary{
+      background: linear-gradient(135deg, rgba(30, 86, 49, 0.8), rgba(41, 81, 53, 0.8));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .cta-primary:hover{
+      background: linear-gradient(135deg, rgba(41, 81, 53, 0.9), rgba(30, 86, 49, 0.9));
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+    }
+
+    /* mobile nav button */
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:0;
+      font-size:24px;
+      color:var(--color-primary);
+      cursor:pointer;
+      padding:8px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-toggle:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Mobile menu styles */
+    nav ul {
+      transition: all 0.3s ease;
+    }
+
+    /* Footer */
+    footer{padding:36px 0;background:#fff;margin-top:36px;border-top:1px solid rgba(0,0,0,0.04)}
+
+    /* Sticky booking bar */
+    .sticky-book{position:fixed;right:18px;bottom:18px;background:var(--color-accent);color:#fff;padding:14px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(18,18,18,0.12);display:flex;gap:12px;align-items:center;z-index:80;font-weight:600;transition:all 0.3s ease}
+
+    /* Grid Layout */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+
+    /* -----------------------------
+       Responsive
+       ----------------------------- */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{height:320px}
+      .grid{grid-template-columns:repeat(2,1fr);gap:20px}
+      .packages{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
+    }
+    
+    /* Tablet Breakpoint */
+    @media (max-width:768px) {
+      .container{padding:0 16px}
+      h2{font-size:28px}
+      h3{font-size:20px}
+      
+      #blog h2{font-size:32px}
+      #blog{padding:60px 0 !important}
+      #blog{background-attachment:scroll !important}
+      
+      .nav{padding:12px 0}
+      .brand h1{font-size:18px}
+      
+      .hero{gap:16px;padding:32px 0}
+      .hero-card{padding:20px}
+      .hero h2{font-size:28px}
+      .hero p{font-size:14px}
+      
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      
+      .cta-primary{padding:10px 16px;font-size:14px}
+      
+      .card img{height:180px}
+      .card > div{padding:16px}
+      .card h3{font-size:18px}
+      .card .meta{font-size:11px}
+      .card .read-more{font-size:12px}
+      
+      /* About Us responsive */
+      #about {
+        margin: 28px 0 !important;
+      }
+      
+      #about > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+      
+      #about img {
+        height: 300px !important;
+      }
+    }
+    
+    @media (max-width:720px){
+      .nav{flex-wrap:wrap;gap:16px}
+      nav ul{
+        display:none !important;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:rgba(250,247,244,0.98);
+        backdrop-filter:blur(12px);
+        flex-direction:column;
+        gap:0;
+        padding:12px 0;
+        border-bottom:1px solid rgba(0,0,0,0.1);
+        z-index:1000;
+      }
+      
+      nav ul.active {
+        display:flex !important;
+      }
+      
+      nav li {
+        width:100%;
+      }
+      
+      nav a {
+        display:block;
+        width:100%;
+        padding:14px 20px;
+        border-radius:0;
+      }
+      
+      nav a:hover {
+        background:rgba(30, 86, 49, 0.15);
+      }
+      
+      .nav-toggle{display:block}
+      .grid{grid-template-columns:1fr;gap:16px}
+      .packages{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      
+      #blog > div:first-child {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      
+      #blog h2 {
+        font-size:28px;
+      }
+      
+      #blog {
+        padding:48px 0 !important;
+        background-attachment:scroll !important;
+      }
+      
+      .card img {
+        height:200px;
+      }
+      .card > div {
+        padding: 20px;
+      }
+      .card h3 {
+        font-size:20px;
+      }
+      .card .meta{font-size:11px;gap:4px}
+      .card .read-more{font-size:12px;margin-top:8px}
+    }
+
+
+
+ 
+  </style>
+
+  <!-- Structured data: example TourPackage (replace values) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "name": "Volcano Adventures",
+    "description": "Guided volcano treks and family tours in East Africa.",
+    "url": "https://example.com"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="imgs/log.png" alt="ventures logo" />
+      <div>
+        <h1>Eben Tours safaris</h1>
+        <div style="font-size:12px;color:var(--muted)">Guided & family-friendly treks</div>
+      </div>
+    </div>
+
+    <nav aria-label="Primary navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">☰</button>
+      <ul id="primary-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destination.html">Destinations</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a  class="active" href="blogs.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="n">
+      <a class="cta-primary" href="#book">Book a Trek</a>
+    </div>
+  </div>
+</header>
+
+  <section class="tour_details_section" style="padding:60px 0;background:linear-gradient(135deg, rgba(30,86,49,0.02), rgba(30,86,49,0.015))">
+    <div class="container">
+      <!-- Hero Header with Title -->
+      <div style="text-align:center;margin-bottom:60px">
+        <div style="display:inline-block;padding:10px 20px;background:linear-gradient(135deg, rgba(30,86,49,0.12), rgba(30,86,49,0.06));border-radius:10px;margin-bottom:18px;border:1px solid rgba(30,86,49,0.2)">
+          <p style="color:var(--color-primary);font-weight:700;font-size:13px;letter-spacing:1.8px;margin:0;text-transform:uppercase">Tour Details</p>
+        </div>
+        <h1 style="font-size:52px;margin:16px 0 24px;color:var(--color-secondary);font-family:var(--font-serif);letter-spacing:-0.5px;font-weight:700;line-height:1.2">1-Day Canopy Walk Adventure in Nyungwe National Park</h1>
+        <p style="font-size:18px;color:var(--muted);max-width:750px;margin:0 auto;line-height:1.7;font-weight:400">Embark on an unforgettable journey into Rwanda's lush wilderness with our 1-Day Canopy Walk Adventure in Nyungwe National Park. Departing early from Kigali, we'll take you through Rwanda's scenic landscapes.</p>
+      </div>
+
+      <!-- Hero Image -->
+      <div style="width:100%;height:500px;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(30,86,49,0.15);margin-bottom:60px">
+        <img src="imgs/canopy_walk.jpg" alt="Canopy Walk" style="width:100%;height:100%;object-fit:cover">
+      </div>
+
+      <!-- Main Content Grid -->
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px;margin-bottom:60px;align-items:start">
+        <!-- Left Column: Itinerary & Details -->
+        <div>
+          <!-- Quick Info Cards -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px">
+            <div style="background:#fff;padding:20px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 4px 12px rgba(30,86,49,0.08)">
+              <div style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px"><i class="fas fa-calendar" style="margin-right:6px"></i>Duration</div>
+              <div style="font-size:24px;font-weight:700;color:var(--color-primary)">1 Day</div>
+            </div>
+            <div style="background:#fff;padding:20px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 4px 12px rgba(30,86,49,0.08)">
+              <div style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px"><i class="fas fa-map-marker-alt" style="margin-right:6px"></i>Destination</div>
+              <div style="font-size:18px;font-weight:700;color:var(--color-primary)">Rwanda</div>
+            </div>
+            <div style="background:#fff;padding:20px;border-radius:12px;border-left:4px solid var(--color-primary);box-shadow:0 4px 12px rgba(30,86,49,0.08)">
+              <div style="color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px"><i class="fas fa-people-group" style="margin-right:6px"></i>Min Group</div>
+              <div style="font-size:18px;font-weight:700;color:var(--color-primary)">2 People</div>
+            </div>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div style="display:flex;gap:0;margin-bottom:32px;border-bottom:2px solid rgba(30,86,49,0.1)">
+            <button class="tab-btn active" onclick="switchTab(event, 'itinerary')" style="padding:16px 24px;background:none;border:none;cursor:pointer;font-weight:700;color:var(--color-primary);border-bottom:3px solid var(--color-primary);font-size:15px;transition:all 0.3s ease">
+              <i class="fas fa-map" style="margin-right:8px"></i>Itinerary
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'inclusions')" style="padding:16px 24px;background:none;border:none;cursor:pointer;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;font-size:15px;transition:all 0.3s ease">
+              <i class="fas fa-check-circle" style="margin-right:8px"></i>Inclusions
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'exclusions')" style="padding:16px 24px;background:none;border:none;cursor:pointer;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;font-size:15px;transition:all 0.3s ease">
+              <i class="fas fa-times-circle" style="margin-right:8px"></i>Exclusions
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'info')" style="padding:16px 24px;background:none;border:none;cursor:pointer;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;font-size:15px;transition:all 0.3s ease">
+              <i class="fas fa-info-circle" style="margin-right:8px"></i>Info
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div id="itinerary" class="tab-content">
+            <h2 style="font-size:28px;margin:0 0 32px;color:var(--color-secondary)">Tour Itinerary</h2>
+            
+            <!-- Timeline Item 1 -->
+            <div style="display:flex;gap:24px;margin-bottom:40px;position:relative;padding-bottom:40px;border-bottom:1px solid rgba(30,86,49,0.1)">
+              <div style="flex-shrink:0;width:100px">
+                <div style="background:var(--color-primary);color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;font-size:14px;text-align:center">04:00 AM</div>
+              </div>
+              <div>
+                <h3 style="margin:0 0 8px;font-size:20px;color:var(--color-primary);font-family:var(--font-serif)">Departure to Nyungwe National Park</h3>
+                <p style="color:var(--muted);margin:0;line-height:1.6">Begin your adventure at the break of dawn as we depart from Kigali, Rwanda's vibrant capital. Settle into our comfortable vehicle and prepare for a scenic drive through the breathtaking countryside. Along the way, soak in the stunning landscapes before arriving at the serene Nyungwe National Park, where your canopy walk experience awaits.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div style="display:flex;gap:24px;margin-bottom:40px;position:relative;padding-bottom:40px;border-bottom:1px solid rgba(30,86,49,0.1)">
+              <div style="flex-shrink:0;width:100px">
+                <div style="background:var(--color-primary);color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;font-size:14px;text-align:center">10:00 AM</div>
+              </div>
+              <div>
+                <h3 style="margin:0 0 8px;font-size:20px;color:var(--color-primary);font-family:var(--font-serif)">Canopy Walk Experience</h3>
+                <p style="color:var(--muted);margin:0;line-height:1.6">Step into the heart of the forest as you embark on a guided canopy walk. Traverse a series of suspended bridges swaying gently above the lush treetops. Immerse yourself in the beauty of Nyungwe's rich biodiversity, spot rare birds, colorful butterflies, and playful primates as you explore the vibrant ecosystem.</p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div style="display:flex;gap:24px">
+              <div style="flex-shrink:0;width:100px">
+                <div style="background:var(--color-primary);color:#fff;padding:12px 16px;border-radius:8px;font-weight:700;font-size:14px;text-align:center">01:00 PM</div>
+              </div>
+              <div>
+                <h3 style="margin:0 0 8px;font-size:20px;color:var(--color-primary);font-family:var(--font-serif)">Lunch and Return Journey</h3>
+                <p style="color:var(--muted);margin:0;line-height:1.6">After an exhilarating morning, indulge in a delicious lunch at the Uwinka Visitor's Center, surrounded by the tranquility of the park. Recharged and ready for the return journey, we begin our scenic drive back to Kigali. Arrive at your hotel by evening with cherished memories and a heart full of nature's wonders.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inclusions Tab -->
+          <div id="inclusions" class="tab-content" style="display:none">
+            <h2 style="font-size:28px;margin:0 0 32px;color:var(--color-secondary)">What's Included</h2>
+            <div style="display:grid;grid-template-columns:1fr;gap:16px">
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid var(--color-primary)">
+                <i class="fas fa-check" style="color:var(--color-primary);font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:var(--color-primary);font-weight:700">Professional Guide</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Experienced and knowledgeable tour guide throughout the journey</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid var(--color-primary)">
+                <i class="fas fa-check" style="color:var(--color-primary);font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:var(--color-primary);font-weight:700">Transportation</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Comfortable air-conditioned vehicle for the entire journey</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid var(--color-primary)">
+                <i class="fas fa-check" style="color:var(--color-primary);font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:var(--color-primary);font-weight:700">Park Entrance Fee</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Access to Nyungwe National Park and canopy walk facilities</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid var(--color-primary)">
+                <i class="fas fa-check" style="color:var(--color-primary);font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:var(--color-primary);font-weight:700">Lunch & Beverages</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Delicious lunch and refreshing non-alcoholic beverages</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exclusions Tab -->
+          <div id="exclusions" class="tab-content" style="display:none">
+            <h2 style="font-size:28px;margin:0 0 32px;color:var(--color-secondary)">What's Not Included</h2>
+            <div style="display:grid;grid-template-columns:1fr;gap:16px">
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid #d32f2f">
+                <i class="fas fa-times" style="color:#d32f2f;font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:#d32f2f;font-weight:700">Alcoholic Beverages</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Any alcoholic drinks are not included and available for purchase</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid #d32f2f">
+                <i class="fas fa-times" style="color:#d32f2f;font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:#d32f2f;font-weight:700">Personal Travel Insurance</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Travel and health insurance are the responsibility of the traveler</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid #d32f2f">
+                <i class="fas fa-times" style="color:#d32f2f;font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:#d32f2f;font-weight:700">Accommodation</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Hotel accommodation not included. This is a day trip only</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid #d32f2f">
+                <i class="fas fa-times" style="color:#d32f2f;font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:#d32f2f;font-weight:700">Optional Activities</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Any additional activities or upgrades not mentioned in the itinerary</p>
+                </div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border-radius:12px;border-left:4px solid #d32f2f">
+                <i class="fas fa-times" style="color:#d32f2f;font-size:20px;margin-top:2px;flex-shrink:0"></i>
+                <div>
+                  <h4 style="margin:0 0 4px;color:#d32f2f;font-weight:700">Personal Expenses</h4>
+                  <p style="margin:0;color:var(--muted);font-size:14px">Souvenirs, tips, and other personal expenses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Tab -->
+          <div id="info" class="tab-content" style="display:none">
+            <h2 style="font-size:28px;margin:0 0 32px;color:var(--color-secondary)">Essential Information</h2>
+            <div style="display:grid;grid-template-columns:1fr;gap:20px">
+              <div>
+                <h4 style="margin:0 0 12px;color:var(--color-primary);font-weight:700;font-size:16px"><i class="fas fa-backpack" style="margin-right:8px"></i>What to Bring</h4>
+                <p style="margin:0;color:var(--muted);line-height:1.7">Comfortable walking shoes, light clothing, sunscreen, hat, insect repellent, camera, and a refillable water bottle.</p>
+              </div>
+              <div>
+                <h4 style="margin:0 0 12px;color:var(--color-primary);font-weight:700;font-size:16px"><i class="fas fa-person-hiking" style="margin-right:8px"></i>Physical Requirements</h4>
+                <p style="margin:0;color:var(--muted);line-height:1.7">Moderate fitness level required. The canopy walk involves walking across suspended bridges at heights up to 50 meters.</p>
+              </div>
+              <div>
+                <h4 style="margin:0 0 12px;color:var(--color-primary);font-weight:700;font-size:16px"><i class="fas fa-calendar-check" style="margin-right:8px"></i>Best Time to Visit</h4>
+                <p style="margin:0;color:var(--muted);line-height:1.7">Year-round destination, but best visited during dry seasons: January-February and September-October.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Pricing & Booking -->
+        <div style="position:sticky;top:100px">
+          <!-- Pricing Card -->
+          <div style="background:#fff;padding:32px;border-radius:16px;box-shadow:0 10px 40px rgba(30,86,49,0.12);border:1px solid rgba(30,86,49,0.1);margin-bottom:24px">
+            <div style="margin-bottom:24px">
+              <p style="color:var(--muted);font-size:14px;margin:0 0 8px;font-weight:600">Price Per Person</p>
+              <div style="font-size:48px;font-weight:700;color:var(--color-primary);margin:0">$450</div>
+              <p style="color:var(--muted);font-size:13px;margin:8px 0 0;font-weight:500">Based on minimum 2 people</p>
+            </div>
+            
+            <div style="height:1px;background:rgba(30,86,49,0.1);margin-bottom:24px"></div>
+
+            <!-- Booking Form -->
+            <form style="display:flex;flex-direction:column;gap:16px">
+              <div>
+                <label style="display:block;font-weight:600;font-size:13px;color:var(--color-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Full Name</label>
+                <input type="text" required placeholder="John Doe" style="width:100%;padding:12px 14px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:13px;color:var(--color-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Email Address</label>
+                <input type="email" required placeholder="your@email.com" style="width:100%;padding:12px 14px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:13px;color:var(--color-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Contact Number</label>
+                <div style="display:flex;gap:8px;align-items:flex-end">
+                  <div style="flex:0 0 110px;position:relative">
+                    <label style="display:block;font-weight:600;font-size:11px;color:var(--color-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Country Code</label>
+                    <div style="position:relative">
+                      <input type="text" id="countrySearchInput" placeholder="Search..." style="width:100%;padding:12px 10px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:13px;font-family:inherit;background:#fff" onfocus="showCountryDropdown()" oninput="filterCountries(this.value)">
+                      <div id="countryDropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid rgba(30,86,49,0.2);border-top:none;border-radius:0 0 8px 8px;max-height:250px;overflow-y:auto;z-index:1000;box-shadow:0 4px 12px rgba(30,86,49,0.15)">
+                        <!-- Countries will be populated by JavaScript -->
+                      </div>
+                    </div>
+                    <span class="fi fi-rw" id="countryFlagDisplay" style="position:absolute;top:32px;right:12px;width:24px;height:18px;display:inline-block;line-height:1;border-radius:2px;pointer-events:none"></span>
+                  </div>
+                  <div style="flex:1">
+                    <label style="display:block;font-weight:600;font-size:11px;color:var(--color-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">Phone Number</label>
+                    <input type="tel" name="phone_number" required placeholder="786140897" style="width:100%;padding:12px 14px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:13px;color:var(--color-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Number of Travelers</label>
+                <input type="number" required min="2" max="20" value="2" style="width:100%;padding:12px 14px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div>
+                <label style="display:block;font-weight:600;font-size:13px;color:var(--color-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Preferred Date</label>
+                <input type="date" required style="width:100%;padding:12px 14px;border:1px solid rgba(30,86,49,0.2);border-radius:8px;font-size:14px;font-family:inherit;transition:all 0.3s ease" onfocus="this.style.borderColor='var(--color-primary)';this.style.boxShadow='0 0 0 3px rgba(30,86,49,0.1)'" onblur="this.style.borderColor='rgba(30,86,49,0.2)';this.style.boxShadow='none'">
+              </div>
+
+              <div style="background:rgba(30,86,49,0.05);padding:14px;border-radius:8px;border-left:3px solid var(--color-primary)">
+                <p style="margin:0;font-size:13px;color:var(--color-secondary);font-weight:600">Total: <span style="color:var(--color-primary)">$<span id="totalPrice">450</span></span></p>
+                <p style="margin:4px 0 0;font-size:12px;color:var(--muted)">Includes all services & lunch</p>
+              </div>
+
+              <button type="submit" style="padding:16px;background:linear-gradient(135deg, var(--color-primary), var(--color-accent));color:#fff;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.5px" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(30,86,49,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(30,86,49,0.2)'">
+                <i class="fas fa-calendar-check" style="margin-right:8px"></i>Book Now
+              </button>
+              
+              <a href="https://wa.me/+250786140897" target="_blank" style="padding:14px;background:rgba(30,86,49,0.1);color:var(--color-primary);border:2px solid var(--color-primary);border-radius:10px;font-weight:700;font-size:14px;text-align:center;transition:all 0.3s ease;text-decoration:none;cursor:pointer" onmouseover="this.style.background='var(--color-primary)';this.style.color='#fff'" onmouseout="this.style.background='rgba(30,86,49,0.1)';this.style.color='var(--color-primary)'">
+                <i class="fab fa-whatsapp" style="margin-right:8px"></i>Chat on WhatsApp
+              </a>
+            </form>
+          </div>
+
+          <!-- Contact Info Box -->
+          <div style="background:linear-gradient(135deg, rgba(30,86,49,0.08), rgba(30,86,49,0.02));padding:24px;border-radius:12px;border:1px solid rgba(30,86,49,0.1)">
+            <h4 style="margin:0 0 16px;color:var(--color-primary);font-weight:700;font-size:15px">Have Questions?</h4>
+            <a href="tel:+250786140897" style="display:flex;gap:12px;align-items:center;margin-bottom:12px;color:var(--color-primary);text-decoration:none;font-weight:600;font-size:14px;transition:all 0.3s ease" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+              <i class="fas fa-phone" style="font-size:16px"></i>
+              (+250) 786 140 897
+            </a>
+            <a href="mailto:administration@ebenconnections.com" style="display:flex;gap:12px;align-items:center;color:var(--color-primary);text-decoration:none;font-weight:600;font-size:14px;transition:all 0.3s ease" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+              <i class="fas fa-envelope" style="font-size:16px"></i>
+              administration@ebenconnections.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .tab-btn.active {
+      color: var(--color-primary) !important;
+      border-bottom-color: var(--color-primary) !important;
+    }
+
+    .tab-btn:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 1024px) {
+      [style*="grid-template-columns:2fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      [style*="position:sticky"] {
+        position: static !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px !important;
+      }
+
+      [style*="display:grid;grid-template-columns:repeat(3"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      [style*="display:flex;gap:24px;margin-bottom:40px"] {
+        flex-direction: column !important;
+      }
+
+      [style*="flex-shrink:0;width:100px"] {
+        width: auto !important;
+      }
+    }
+  </style>
+
+  <script>
+    // Tab switching
+    function switchTab(event, tabName) {
+      event.preventDefault();
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+      
+      tabs.forEach(tab => tab.style.display = 'none');
+      buttons.forEach(btn => {
+        btn.style.color = 'var(--muted)';
+        btn.style.borderBottomColor = 'transparent';
+      });
+      
+      document.getElementById(tabName).style.display = 'block';
+      event.currentTarget.style.color = 'var(--color-primary)';
+      event.currentTarget.style.borderBottomColor = 'var(--color-primary)';
+    }
+
+    // Update total price based on number of travelers
+    const numTravelersInput = document.querySelector('input[type="number"]');
+    if (numTravelersInput) {
+      numTravelersInput.addEventListener('change', () => {
+        const total = numTravelersInput.value * 450;
+        document.getElementById('totalPrice').textContent = total;
+      });
+    }
+
+    // Form submission
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your interest! Our team will contact you shortly with booking confirmation.');
+    });
+  </script>
+
+
+
+<footer style="background:linear-gradient(135deg, rgba(30,86,49,0.95) 0%, rgba(45,90,71,0.98) 50%, rgba(30,86,49,0.95) 100%);color:#fff;padding:80px 0 40px;margin-top:80px;position:relative;overflow:hidden;backdrop-filter:blur(8px)">
+  <!-- Premium Decorative SVG Background -->
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle, rgba(255,255,255,0.08), transparent);border-radius:50%;pointer-events:none"></div>
+  <div style="position:absolute;bottom:-150px;left:-100px;width:400px;height:400px;background:radial-gradient(circle, rgba(255,255,255,0.06), transparent);border-radius:50%;pointer-events:none"></div>
+  
+  <!-- Premium SVG accent -->
+  <div style="position:absolute;top:40px;left:5%;opacity:0.04;pointer-events:none">
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 10 Q220 50 220 150 Q220 220 150 260 Q80 220 80 150 Q80 50 150 10" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="150" cy="150" r="60" fill="none" stroke="#fff" stroke-width="1" opacity="0.6"/>
+      <circle cx="150" cy="150" r="90" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2">
+    <!-- Premium Top Section -->
+    <div style="display:grid;grid-template-columns:2.5fr 1.2fr 1.2fr 1.3fr;gap:48px;margin-bottom:60px;align-items:start">
+      
+      <!-- Brand Section: Premium Logo & Description -->
+      <div style="padding-right:20px">
+        <!-- Logo with Premium styling -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+          <div style="position:relative;width:56px;height:56px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.2)">
+            <img src="imgs/log.png" alt="Eben Tours Logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover">
+          </div>
+          <div>
+            <h3 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.5px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.9) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Eben Tours</h3>
+            <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.75);font-weight:500;letter-spacing:1px;text-transform:uppercase">Safari Adventures</p>
+          </div>
+        </div>
+        
+        <!-- Premium Description -->
+        <p style="color:rgba(255,255,255,0.82);font-size:15px;line-height:1.8;margin:0 0 24px;font-weight:400">Experience the magic of African wilderness with expert guides and responsible tourism. Creating unforgettable memories across pristine landscapes and vibrant cultures.</p>
+        
+        <!-- Premium Social Links -->
+        <div style="display:flex;gap:14px;margin-top:24px;flex-wrap:wrap">
+          <a href="#facebook" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-facebook" style="font-size:18px"></i>
+          </a>
+          <a href="#twitter" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-twitter" style="font-size:18px"></i>
+          </a>
+          <a href="#instagram" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-instagram" style="font-size:18px"></i>
+          </a>
+          <a href="#youtube" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));border-radius:10px;color:#fff;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);border:1px solid rgba(255,255,255,0.25);backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.15))';this.style.transform='translateY(-4px) scale(1.05)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))';this.style.transform='translateY(0) scale(1)';this.style.boxShadow='none'">
+            <i class="fab fa-youtube" style="font-size:18px"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Explore</h4>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0;font-size:14px">
+          <li style="margin-bottom:12px"><a href="#packages" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Packages</a></li>
+          <li style="margin-bottom:12px"><a href="#destinations" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Destinations</a></li>
+          <li style="margin-bottom:12px"><a href="#blog" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>Blog</a></li>
+          <li><a href="#about" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;display:flex;align-items:center;gap:8px;font-weight:500" onmouseover="this.style.color='#fff';this.style.transform='translateX(4px)'" onmouseout="this.style.color='rgba(255,255,255,0.8)';this.style.transform='translateX(0)'"><i class="fas fa-chevron-right" style="font-size:12px;opacity:0.6"></i>About Us</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Section: Premium Cards -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Contact</h4>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <a href="tel:+250786140897" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-phone" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">(+250) 786 140 897</span>
+          </a>
+          <a href="mailto:administration@ebenconnections.com" style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease;text-decoration:none;backdrop-filter:blur(10px)" onmouseover="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08))';this.style.transform='translateX(4px)'" onmouseout="this.style.background='linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))';this.style.transform='translateX(0)'">
+            <i class="fas fa-envelope" style="color:rgba(255,255,255,0.9);font-size:16px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500;word-break:break-word">administration@ebenconnections.com</span>
+          </a>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:10px;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(10px)">
+            <i class="fas fa-map-marker-alt" style="color:rgba(255,255,255,0.9);font-size:16px;margin-top:2px;flex-shrink:0"></i>
+            <span style="color:rgba(255,255,255,0.85);font-size:13px;font-weight:500">Kigali, Rwanda</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Premium Newsletter Section -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+          <div style="width:4px;height:24px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.3));border-radius:2px"></div>
+          <h4 style="margin:0;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#fff">Updates</h4>
+        </div>
+        <p style="color:rgba(255,255,255,0.75);font-size:13px;margin:0 0 16px;font-weight:500">Subscribe for exclusive tours and offers.</p>
+        <form onsubmit="event.preventDefault();alert('Subscribed — replace with real API')" style="display:flex;flex-direction:column;gap:10px">
+          <input type="email" placeholder="your@email.com" required style="padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;font-weight:500;transition:all 0.3s ease;backdrop-filter:blur(10px)" onfocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.background='rgba(255,255,255,0.15)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.background='rgba(255,255,255,0.08)';this.style.boxShadow='none'">
+          <button type="submit" style="padding:12px 16px;background:linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.95) 100%);color:var(--color-primary);border:none;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);letter-spacing:0.5px;text-transform:uppercase" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 16px rgba(0,0,0,0.2)'">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Premium Divider -->
+    <div style="height:1px;background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));margin:60px 0 40px"></div>
+    
+    <!-- Bottom Section: Copyright + Premium Links -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+        <p style="margin:0;color:rgba(255,255,255,0.7)">© <span id="year"></span> Eben Tours Safaris</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.7)">All rights reserved</p>
+        <div style="width:1px;height:16px;background:rgba(255,255,255,0.2)"></div>
+        <p style="margin:0;color:rgba(255,255,255,0.6);font-style:italic">Designed by <a href="https://lerony.com" style="color:rgba(255,255,255,0.8);text-decoration:none;transition:all 0.3s ease;font-weight:500;font-style:italic" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Lerony</a></p>
+      </div>
+      
+      <div style="display:flex;gap:24px;font-size:13px">
+        <a href="#privacy" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Privacy</a>
+        <a href="#terms" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Terms</a>
+        <a href="#sitemap" style="color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s ease;font-weight:500" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    @media (max-width: 1024px) {
+      footer {
+        padding: 60px 0 30px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 36px !important;
+        margin-bottom: 40px !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      footer {
+        padding: 48px 0 24px;
+      }
+      
+      footer .container > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+        margin-bottom: 32px !important;
+      }
+      
+      footer .container > div:last-child {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</footer>
+
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('primary-menu');
+  
+  toggle.addEventListener('click', ()=>{
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    menu.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('active');
+    });
+  });
+
+  // Update country flag when selection changes
+  function updateCountryFlag(countryCode) {
+    const flagSpan = document.getElementById('countryFlagDisplay');
+    if (flagSpan && countryCode) {
+      flagSpan.className = 'fi fi-' + countryCode;
+    }
+  }
+
+  // Country data with flags and codes
+  const countries = [
+    { code: 'us', flag: 'us', name: 'United States', dial: '+1' },
+    { code: 'gb', flag: 'gb', name: 'United Kingdom', dial: '+44' },
+    { code: 'in', flag: 'in', name: 'India', dial: '+91' },
+    { code: 'cn', flag: 'cn', name: 'China', dial: '+86' },
+    { code: 'jp', flag: 'jp', name: 'Japan', dial: '+81' },
+    { code: 'fr', flag: 'fr', name: 'France', dial: '+33' },
+    { code: 'de', flag: 'de', name: 'Germany', dial: '+49' },
+    { code: 'it', flag: 'it', name: 'Italy', dial: '+39' },
+    { code: 'es', flag: 'es', name: 'Spain', dial: '+34' },
+    { code: 'nl', flag: 'nl', name: 'Netherlands', dial: '+31' },
+    { code: 'au', flag: 'au', name: 'Australia', dial: '+61' },
+    { code: 'nz', flag: 'nz', name: 'New Zealand', dial: '+64' },
+    { code: 'za', flag: 'za', name: 'South Africa', dial: '+27' },
+    { code: 'ng', flag: 'ng', name: 'Nigeria', dial: '+234' },
+    { code: 'ke', flag: 'ke', name: 'Kenya', dial: '+254' },
+    { code: 'ug', flag: 'ug', name: 'Uganda', dial: '+256' },
+    { code: 'rw', flag: 'rw', name: 'Rwanda', dial: '+250' },
+    { code: 'tz', flag: 'tz', name: 'Tanzania', dial: '+255' },
+    { code: 'ma', flag: 'ma', name: 'Morocco', dial: '+212' },
+    { code: 'dz', flag: 'dz', name: 'Algeria', dial: '+213' },
+    { code: 'eg', flag: 'eg', name: 'Egypt', dial: '+20' },
+    { code: 'sa', flag: 'sa', name: 'Saudi Arabia', dial: '+966' },
+    { code: 'ae', flag: 'ae', name: 'UAE', dial: '+971' },
+    { code: 'br', flag: 'br', name: 'Brazil', dial: '+55' },
+    { code: 'ar', flag: 'ar', name: 'Argentina', dial: '+54' },
+    { code: 'mx', flag: 'mx', name: 'Mexico', dial: '+52' },
+    { code: 'jm', flag: 'jm', name: 'Jamaica', dial: '+1-876' },
+    { code: 'hu', flag: 'hu', name: 'Hungary', dial: '+36' },
+    { code: 'cz', flag: 'cz', name: 'Czech Republic', dial: '+420' },
+    { code: 'hr', flag: 'hr', name: 'Croatia', dial: '+385' },
+    { code: 'tw', flag: 'tw', name: 'Taiwan', dial: '+886' },
+    { code: 'th', flag: 'th', name: 'Thailand', dial: '+66' },
+    { code: 'my', flag: 'my', name: 'Malaysia', dial: '+60' },
+    { code: 'sg', flag: 'sg', name: 'Singapore', dial: '+65' },
+    { code: 'id', flag: 'id', name: 'Indonesia', dial: '+62' },
+    { code: 'ph', flag: 'ph', name: 'Philippines', dial: '+63' },
+    { code: 'vn', flag: 'vn', name: 'Vietnam', dial: '+84' },
+    { code: 'kr', flag: 'kr', name: 'South Korea', dial: '+82' },
+    { code: 'pk', flag: 'pk', name: 'Pakistan', dial: '+92' }
+  ];
+
+  // Populate dropdown on page load
+  function initCountryDropdown() {
+    const dropdown = document.getElementById('countryDropdown');
+    countries.forEach(country => {
+      const div = document.createElement('div');
+      div.style.cssText = 'display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;border-bottom:1px solid rgba(30,86,49,0.1);transition:background 0.2s ease';
+      div.innerHTML = `
+        <span class="fi fi-${country.flag}" style="width:24px;height:18px;display:inline-block;line-height:1;border-radius:2px;flex-shrink:0"></span>
+        <span style="flex:1;font-size:13px">${country.name}</span>
+        <span style="color:var(--muted);font-weight:600;font-size:12px">${country.dial}</span>
+      `;
+      div.onmouseover = () => div.style.background = 'rgba(30,86,49,0.05)';
+      div.onmouseout = () => div.style.background = 'transparent';
+      div.onclick = () => selectCountry(country);
+      dropdown.appendChild(div);
+    });
+  }
+
+  // Show dropdown
+  function showCountryDropdown() {
+    document.getElementById('countryDropdown').style.display = 'block';
+    document.getElementById('countrySearchInput').focus();
+  }
+
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#countrySearchInput') && !e.target.closest('#countryDropdown')) {
+      document.getElementById('countryDropdown').style.display = 'none';
+    }
+  });
+
+  // Filter countries based on search input
+  function filterCountries(searchTerm) {
+    const dropdown = document.getElementById('countryDropdown');
+    const items = dropdown.querySelectorAll('div');
+    const lowerSearch = searchTerm.toLowerCase();
+    
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const matches = text.includes(lowerSearch);
+      item.style.display = matches ? 'flex' : 'none';
+    });
+  }
+
+  // Select a country
+  function selectCountry(country) {
+    document.getElementById('countrySearchInput').value = country.name + ' (' + country.dial + ')';
+    updateCountryFlag(country.flag);
+    document.getElementById('countryDropdown').style.display = 'none';
+    document.querySelector('input[name="phone_number"]').focus();
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCountryDropdown);
+
+  // Accessibility: ensure focus is visible on keyboard navigation
+  document.body.addEventListener('keyup', (e)=>{
+    if(e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+  });
+</script>
+
+</body>
+</html>
