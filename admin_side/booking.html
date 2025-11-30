@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Eben Tours</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1E5631;
+            --accent-green: #295135;
+            --light-bg: #F8F9FB;
+            --white: #FFFFFF;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --border-color: #E5E7EB;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #F8F9FB 0%, #EEF5F0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .booking-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .booking-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .booking-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Booking Card */
+        .booking-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            padding: 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-header-icon {
+            font-size: 32px;
+            opacity: 0.9;
+        }
+
+        .card-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        /* Form Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input,
+        .form-select,
+        .phone-number-group {
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
+            background: rgba(30, 86, 49, 0.01);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Phone Number Group */
+        .phone-number-group {
+            display: flex;
+            gap: 10px;
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .country-code {
+            flex: 0 0 110px;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .country-code:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
+        }
+
+        .phone-input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
+        }
+
+        /* Full Width Fields */
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Search Box Styling */
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .form-input.search-input {
+            padding-left: 45px;
+        }
+
+        /* Number Input Styling */
+        input[type="number"] {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Date Input Styling */
+        input[type="date"] {
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 86, 49, 0.2);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30, 86, 49, 0.3);
+        }
+
+        .btn-cancel {
+            background: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-cancel:hover {
+            background: #D1D5DB;
+            transform: translateY(-3px);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .card-body {
+                padding: 30px;
+            }
+
+            .form-grid {
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .booking-header h1 {
+                font-size: 32px;
+            }
+
+            .card-header {
+                padding: 20px;
+            }
+
+            .card-body {
+                padding: 25px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-group:nth-child(n) {
+                animation-delay: 0s !important;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+
+            .phone-number-group {
+                flex-direction: column;
+            }
+
+            .country-code {
+                flex: 1;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .booking-header h1 {
+                font-size: 28px;
+            }
+
+            .booking-header p {
+                font-size: 14px;
+            }
+
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .card-header h2 {
+                font-size: 24px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .form-label {
+                font-size: 13px;
+            }
+
+            .form-input,
+            .form-select,
+            .country-code,
+            .phone-input {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            .form-actions {
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+        }
+
+        /* Focus Visible for Accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--primary-green);
+            outline-offset: 2px;
+        }
+
+        /* Placeholder Styling */
+        input::placeholder,
+        select::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Select Arrow */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="booking-header">
+            <h1>Complete Your Booking</h1>
+            <p>Fill in your details to confirm your amazing safari adventure</p>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-card">
+            <div class="card-header">
+                <div class="card-header-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Details</h2>
+            </div>
+
+            <div class="card-body">
+                <form>
+                    <div class="form-grid">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" placeholder="John Rambo" required>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <div class="phone-number-group">
+                                <select class="country-code">
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+86">🇨🇳 +86</option>
+                                    <option value="+81">🇯🇵 +81</option>
+                                    <option value="+33">🇫🇷 +33</option>
+                                    <option value="+49">🇩🇪 +49</option>
+                                    <option value="+39">🇮🇹 +39</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                    <option value="+64">🇳🇿 +64</option>
+                                    <option value="+27">🇿🇦 +27</option>
+                                    <option value="+256">🇺🇬 +256</option>
+                                    <option value="+254">🇰🇪 +254</option>
+                                    <option value="+255">🇹🇿 +255</option>
+                                    <option value="+250">🇷🇼 +250</option>
+                                </select>
+                                <input type="tel" class="phone-input" placeholder="786140897" required>
+                            </div>
+                        </div>
+
+                        <!-- Number of Travelers -->
+                        <div class="form-group">
+                            <label class="form-label">Number of Travelers</label>
+                            <input type="number" class="form-input" placeholder="2" min="1" max="20" required>
+                        </div>
+
+                        <!-- Preferred Date -->
+                        <div class="form-group">
+                            <label class="form-label">Preferred Date</label>
+                            <input type="date" class="form-input" required>
+                        </div>
+
+                        <!-- Tour Package Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Tour Package</label>
+                            <select class="form-select" required>
+                                <option value="">Select a tour package</option>
+                                <option value="gorilla">Gorilla Trekking Adventure</option>
+                                <option value="safari">Safari Adventure</option>
+                                <option value="kilimanjaro">Mount Kilimanjaro Trek</option>
+                                <option value="zanzibar">Zanzibar Beach Escape</option>
+                                <option value="combo">Multi-Country Combo</option>
+                            </select>
+                        </div>
+
+                        <!-- Special Requests -->
+                        <div class="form-group full-width">
+                            <label class="form-label">Special Requests (Optional)</label>
+                            <textarea class="form-input" style="min-height: 100px; resize: vertical;" placeholder="Tell us about any special requirements or preferences..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel" onclick="resetForm()">
+                            <i class="fas fa-times"></i>Cancel
+                        </button>
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-check"></i>Confirm Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function resetForm() {
+            document.querySelector('form').reset();
+        }
+
+        // Form validation on submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const travelers = this.querySelector('input[type="number"]').value;
+            const date = this.querySelector('input[type="date"]').value;
+            const tour = this.querySelector('select').value;
+
+            if (fullName && email && phone && travelers && date && tour) {
+                alert(`Booking confirmed for ${fullName}!\nWe'll send confirmation details to ${email}`);
+                // Here you would typically send the data to a backend
+            } else {
+                alert('Please fill in all required fields');
+            }
+        });
+
+        // Add smooth transitions on input focus
+        const inputs = document.querySelectorAll('.form-input, .form-select, .country-code, .phone-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.transform = 'scale(1.01)';
+            });
+            input.addEventListener('blur', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
