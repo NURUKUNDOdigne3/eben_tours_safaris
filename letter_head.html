@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eben Safaris - Letterhead</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1E5631;
+            --accent-green: #295135;
+            --light-green: #E8F5E9;
+            --dark-green: #0F3618;
+            --gold: #C4A747;
+            --light-bg: #F5F5F0;
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F5F5F0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .letterhead-container {
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Background Elements */
+        .letterhead-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(30, 86, 49, 0.08) 0%, rgba(41, 81, 53, 0.05) 50%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .leaf-decoration-1 {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 150px;
+            opacity: 0.12;
+            transform: rotate(15deg);
+            z-index: 2;
+        }
+
+        .leaf-decoration-2 {
+            position: absolute;
+            top: 250px;
+            left: 30px;
+            font-size: 120px;
+            opacity: 0.11;
+            transform: rotate(-25deg);
+            z-index: 2;
+        }
+
+        .leaf-decoration-3 {
+            position: absolute;
+            bottom: 150px;
+            right: 50px;
+            font-size: 130px;
+            opacity: 0.10;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        /* Header Section */
+        .letterhead-header {
+            position: relative;
+            z-index: 10;
+            padding: 25px 70px 20px;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            border-bottom: 2px solid rgba(30, 86, 49, 0.12);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+        }
+
+        /* Logo Container with Glassmorphism */
+        .logo-container {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(30, 86, 49, 0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(30, 86, 49, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(30, 86, 49, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .logo-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        /* Company Info Section */
+        .company-info {
+            flex: 1;
+            position: relative;
+            z-index: 10;
+        }
+
+        .company-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        .company-tagline {
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .company-tagline::before {
+            content: '';
+            width: 18px;
+            height: 1.5px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+        }
+
+        .company-tagline::after {
+            content: '';
+            width: 18px;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold) 100%);
+        }
+
+        /* Contact Info Grid */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 28px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+        }
+
+        .contact-icon {
+            width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, rgba(30, 86, 49, 0.12) 0%, rgba(30, 86, 49, 0.06) 100%);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            font-size: 11px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-size: 8px;
+        }
+
+        .contact-value {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 10px;
+        }
+
+        /* Footer Section */
+        .letterhead-footer {
+            position: relative;
+            z-index: 10;
+            padding: 0;
+            background: transparent;
+            border-top: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .social-links {
+            display: none;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, rgba(30, 86, 49, 0.1) 0%, rgba(30, 86, 49, 0.05) 100%);
+            border: 1px solid rgba(30, 86, 49, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            color: white;
+            border-color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-right {
+            display: none;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        /* Nature-inspired Wave Divider */
+        .wave-divider {
+            position: relative;
+            z-index: 10;
+            height: 60px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, rgba(30, 86, 49, 0.05) 0%, transparent 100%);
+        }
+
+        .wave-divider svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Content Area for Letters */
+        .letter-content {
+            position: relative;
+            z-index: 10;
+            padding: 40px 70px;
+            flex: 1;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .letter-date {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .letter-greeting {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .letter-body {
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .letter-signature-area {
+            margin-top: 60px;
+        }
+
+        .signature-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-green) 0%, transparent 100%);
+            margin-bottom: 10px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 3px;
+        }
+
+        .signature-title {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Design */
+        @media print {
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            }
+
+            .letterhead-container {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                page-break-after: always;
+                page-break-inside: avoid;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .letterhead-header {
+                page-break-inside: avoid;
+            }
+
+            .letter-content {
+                page-break-inside: avoid;
+            }
+
+            .letterhead-footer {
+                page-break-inside: avoid;
+            }
+
+            /* Ensure clean print layout */
+            @page {
+                size: A4;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .letterhead-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px 30px 25px;
+                gap: 20px;
+            }
+
+            .company-name {
+                font-size: 36px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .letterhead-footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 20px 30px;
+            }
+
+            .footer-left, .footer-right {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer-right {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .letter-content {
+                padding: 30px;
+            }
+
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .logo-icon {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letterhead-container {
+                border-radius: 10px;
+            }
+
+            .letterhead-header {
+                padding: 20px;
+            }
+
+            .company-name {
+                font-size: 28px;
+            }
+
+            .company-tagline {
+                font-size: 12px;
+            }
+
+            .contact-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            .contact-details {
+                font-size: 12px;
+            }
+
+            .letter-content {
+                padding: 20px;
+                font-size: 13px;
+            }
+
+            .social-link {
+                width: 32px;
+                height: 32px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="letterhead-container">
+        <!-- Decorative Elements -->
+        <div class="leaf-decoration-1">🍃</div>
+        <div class="leaf-decoration-2">🌿</div>
+        <div class="leaf-decoration-3">🍂</div>
+
+        <!-- Header Section -->
+        <div class="letterhead-header">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo-content">
+                    <img src="imgs/log.png" alt="Eben Safaris Logo" class="logo-image">
+                </div>
+            </div>
+
+            <!-- Company Info -->
+            <div class="company-info">
+                <h1 class="company-name">EBEN SAFARIS</h1>
+                <div class="company-tagline">
+                    <span>Experience African Wildlife</span>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">(+250) 786 140 897</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">administration@ebenconnections.com</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Address</div>
+                            <div class="contact-value">Kigali - Rwanda - Norrsken</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-label">Website</div>
+                            <div class="contact-value">www.ebensafaris.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="letterhead-footer">
+        </div>
+
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path d="M0,30 Q250,60 500,30 T1000,30 L1000,0 L0,0 Z" fill="rgba(30, 86, 49, 0.05)"/>
+            </svg>
+        </div>
+
+        <!-- Sample Letter Content -->
+        <div class="letter-content">
+            <div class="letter-date">Kampala, Uganda | December 2, 2024</div>
+
+            <div class="letter-greeting">Dear Valued Guest,</div>
+
+            <div class="letter-body">
+                Thank you for choosing Eben Safaris for your African adventure. We are thrilled to provide you with an unforgettable experience of wildlife, natural beauty, and authentic cultural encounters across East Africa's most breathtaking destinations.
+                <br><br>
+                Our team of experienced guides and travel experts is dedicated to ensuring that every moment of your journey is perfectly tailored to create memories that will last a lifetime. From the majestic wildebeest migration to the serene beauty of our national parks, we promise an experience beyond your expectations.
+                <br><br>
+                We look forward to welcoming you to the heart of African wilderness.
+            </div>
+
+            <div class="letter-signature-area">
+                <div class="signature-line"></div>
+                <div class="signature-name">Eben Tours Management</div>
+                <div class="signature-title">Premium Safari Experiences</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
